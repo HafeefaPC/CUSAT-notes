@@ -1,0 +1,17 @@
+{
+    "subjects": [
+      {"name": "/sem1", "subjects": ["sub1", "sub2", "sub3"]},
+      {"name": "/sem2", "subjects": ["sub4", "sub5", "sub6"]},
+      {"name": "/sem3", "subjects": ["sub4", "sub5", "sub6"]},
+      {"name": "/sem4", "subjects": ["sub4", "sub5", "sub6"]},
+      {"name": "/sem5", "subjects": ["sub4", "sub5", "sub6"]},
+      {"name": "/sem6", "subjects": ["sub4", "sub5", "sub6"]},
+      {"name": "/sem7", "subjects": ["sub4", "sub5", "sub6"]},
+      {"name": "/sem8", "subjects": ["sub4", "sub5", "sub6"]}
+    ],
+
+    "semester": [
+        {"name": "/notes", "subjects": ["sem1", "sem2", "sem3", "sem4", "sem5", "sem6", "sem7", "sem8"]},
+        {"name": "/questions", "subjects": ["sem1", "sem2", "sem3", "sem4", "sem5", "sem6", "sem7", "sem8"]}
+      ]
+  }
