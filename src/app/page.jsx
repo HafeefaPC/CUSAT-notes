@@ -1,11 +1,17 @@
 import React from 'react'
-import { Button } from 'flowbite-react';
+
 import Link from 'next/link'
+import Hero from '../app/components/Hero/hero'
+import Navbar from "../app/components/Navbar/navbar"
+import Footer from "./components/site-footer/footer"
 
 const home = () => {
   return (
     <div>
-      <Link href="/resources"><Button>Resources</Button></Link>
+      <Navbar />
+      <Hero />
+      {/* <Link href="/resources"><Button>Resources</Button></Link> */}
+      {/* <Footer /> */}
     </div>
   )
 }

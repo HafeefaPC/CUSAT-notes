@@ -9,12 +9,23 @@
     "lint": "next lint"
   },
   "dependencies": {
+    "@radix-ui/react-separator": "^1.0.3",
+    "@radix-ui/react-slot": "^1.0.2",
+    "@radix-ui/react-toggle-group": "^1.0.4",
+    "@t3-oss/env-nextjs": "^0.9.2",
     "axios": "^1.6.7",
+    "class-variance-authority": "^0.7.0",
+    "clsx": "^2.1.0",
     "dotenv": "^16.4.5",
     "flowbite-react": "^0.7.2",
-    "next": "14.1.0",
+    "lucide-react": "^0.363.0",
+    "next": "^14.2.0-canary.48",
+    "next-themes": "^0.3.0",
     "react": "^18",
-    "react-dom": "^18"
+    "react-dom": "^18",
+    "tailwind-merge": "^2.2.2",
+    "tailwindcss-animate": "^1.0.7",
+    "twin.macro": "^3.4.1"
   },
   "devDependencies": {
     "autoprefixer": "^10.4.17",
