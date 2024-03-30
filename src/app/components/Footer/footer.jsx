@@ -3,7 +3,7 @@ import Link from "next/link";
 import { GitHub, Logo, X } from "../ui/icon";
 import { Separator } from "../ui/separator";
 
-import { ThemeToggleGroup } from "../ui/theme-toggle-group";
+
 
 const footerLinks = [
   {
@@ -21,7 +21,7 @@ const footerLinks = [
   { title: "Support", links: ["Contact us", "FAQs"] },
 ];
 
- function Footer() {
+function sitefooter() {
   const githubUrl = '/';
 
   return (
@@ -89,7 +89,7 @@ const footerLinks = [
             <p className="mb-1.5 text-[13px] leading-6 text-muted-foreground lg:text-sm">
               Join Our Community! Get exclusive travel offers and insider tips.
             </p>
-        
+
           </div>
         </div>
 
@@ -104,15 +104,15 @@ const footerLinks = [
                 href="https://popsy.co/"
                 className="underline underline-offset-4 transition-colors hover:text-foreground"
               >
-               Hipus
+                Hipus
               </a>
             </span>
           </p>
 
-          <ThemeToggleGroup />
+          {/* <ThemeToggleGroup /> */}
         </div>
       </div>
     </footer>
   );
 }
-export default {Footer};
+export default sitefooter;

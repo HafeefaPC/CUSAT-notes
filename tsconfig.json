@@ -32,7 +32,7 @@
     "target": "esnext"
   },
   "include": [
-    "next-env.d.ts",
+    "next-env.d.js",
     "**/*.ts",
     "**/*.tsx",
     ".next/types/**/*.ts"

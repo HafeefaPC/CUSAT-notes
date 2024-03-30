@@ -3,7 +3,7 @@ import React from 'react'
 import Link from 'next/link'
 import Hero from '../app/components/Hero/hero'
 import Navbar from "../app/components/Navbar/navbar"
-import Footer from "./components/site-footer/footer"
+import Footer from "../app/components/Footer/footer"
 
 const home = () => {
   return (
@@ -11,7 +11,7 @@ const home = () => {
       <Navbar />
       <Hero />
       {/* <Link href="/resources"><Button>Resources</Button></Link> */}
-      {/* <Footer /> */}
+      <Footer />
     </div>
   )
 }
