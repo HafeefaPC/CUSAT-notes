@@ -2,7 +2,7 @@ import Link from "next/link";
 
 import { GitHub, Logo, X } from "../ui/icon";
 import { Separator } from "../ui/separator";
-
+import ThemeToggleGroup from "../theme/theme-toggle-group";
 
 
 const footerLinks = [
@@ -109,7 +109,7 @@ function sitefooter() {
             </span>
           </p>
 
-          {/* <ThemeToggleGroup /> */}
+          <ThemeToggleGroup />
         </div>
       </div>
     </footer>

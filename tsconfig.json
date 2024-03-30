@@ -35,7 +35,12 @@
     "next-env.d.js",
     "**/*.ts",
     "**/*.tsx",
-    ".next/types/**/*.ts"
+    ".next/types/**/*.ts",
+    "src/app/components/ui/providers.jsx",
+    "src/app/components/ui/tooltip.jsx",
+    "src/app/components/ui/tailwind-indicator.jsx",
+    "src/app/components/ui/sonner.jsx",
+    "src/app/components/ui/fonts.js"
   ],
   "exclude": [
     "node_modules"
