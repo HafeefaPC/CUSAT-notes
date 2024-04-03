@@ -1,17 +1,1444 @@
 {
-    "subjects": [
-      {"name": "/sem1", "subjects": ["sub1", "sub2", "sub3"]},
-      {"name": "/sem2", "subjects": ["sub4", "sub5", "sub6"]},
-      {"name": "/sem3", "subjects": ["sub4", "sub5", "sub6"]},
-      {"name": "/sem4", "subjects": ["sub4", "sub5", "sub6"]},
-      {"name": "/sem5", "subjects": ["sub4", "sub5", "sub6"]},
-      {"name": "/sem6", "subjects": ["sub4", "sub5", "sub6"]},
-      {"name": "/sem7", "subjects": ["sub4", "sub5", "sub6"]},
-      {"name": "/sem8", "subjects": ["sub4", "sub5", "sub6"]}
-    ],
-
-    "semester": [
-        {"name": "/notes", "subjects": ["sem1", "sem2", "sem3", "sem4", "sem5", "sem6", "sem7", "sem8"]},
-        {"name": "/questions", "subjects": ["sem1", "sem2", "sem3", "sem4", "sem5", "sem6", "sem7", "sem8"]}
+  "resources": [
+    {
+      "name": "notes",
+      "slug": "notes",
+      "departments": [
+        {
+          "name": "IT",
+          "slug": "it",
+          "semesters": [
+            {
+              "name": "semester1",
+              "slug": "sem1",
+              "subjects": [
+                "sub1",
+                "sub2",
+                "sub3",
+                "sub4",
+                "sub5",
+                "sub6"
+              ]
+            },
+            {
+              "name": "semester2",
+              "slug": "sem2",
+              "subjects": [
+                "sub1",
+                "sub2",
+                "sub3",
+                "sub4",
+                "sub5",
+                "sub6"
+              ]
+            },
+            {
+              "name": "semester3",
+              "slug": "sem3",
+              "subjects": [
+                "sub1",
+                "sub2",
+                "sub3",
+                "sub4",
+                "sub5",
+                "sub6"
+              ]
+            },
+            {
+              "name": "semester4",
+              "slug": "sem4",
+              "subjects": [
+                "sub1",
+                "sub2",
+                "sub3",
+                "sub4",
+                "sub5",
+                "sub6"
+              ]
+            },
+            {
+              "name": "semester5",
+              "slug": "sem5",
+              "subjects": [
+                "sub1",
+                "sub2",
+                "sub3",
+                "sub4",
+                "sub5",
+                "sub6"
+              ]
+            },
+            {
+              "name": "semester6",
+              "slug": "sem6",
+              "subjects": [
+                "sub1",
+                "sub2",
+                "sub3",
+                "sub4",
+                "sub5",
+                "sub6"
+              ]
+            },
+            {
+              "name": "semester7",
+              "slug": "sem7",
+              "subjects": [
+                "sub1",
+                "sub2",
+                "sub3",
+                "sub4",
+                "sub5",
+                "sub6"
+              ]
+            },
+            {
+              "name": "semester8",
+              "slug": "sem8",
+              "subjects": [
+                "sub1",
+                "sub2",
+                "sub3",
+                "sub4",
+                "sub5",
+                "sub6"
+              ]
+            }
+          ]
+        },
+        {
+          "name": "CS",
+          "slug": "cs",
+          "semesters": [
+            {
+              "name": "semester1",
+              "slug": "sem1",
+              "subjects": [
+                "sub1",
+                "sub2",
+                "sub3",
+                "sub4",
+                "sub5",
+                "sub6"
+              ]
+            },
+            {
+              "name": "semester2",
+              "slug": "sem2",
+              "subjects": [
+                "sub1",
+                "sub2",
+                "sub3",
+                "sub4",
+                "sub5",
+                "sub6"
+              ]
+            },
+            {
+              "name": "semester3",
+              "slug": "sem3",
+              "subjects": [
+                "sub1",
+                "sub2",
+                "sub3",
+                "sub4",
+                "sub5",
+                "sub6"
+              ]
+            },
+            {
+              "name": "semester4",
+              "slug": "sem4",
+              "subjects": [
+                "sub1",
+                "sub2",
+                "sub3",
+                "sub4",
+                "sub5",
+                "sub6"
+              ]
+            },
+            {
+              "name": "semester5",
+              "slug": "sem5",
+              "subjects": [
+                "sub1",
+                "sub2",
+                "sub3",
+                "sub4",
+                "sub5",
+                "sub6"
+              ]
+            },
+            {
+              "name": "semester6",
+              "slug": "sem6",
+              "subjects": [
+                "sub1",
+                "sub2",
+                "sub3",
+                "sub4",
+                "sub5",
+                "sub6"
+              ]
+            },
+            {
+              "name": "semester7",
+              "slug": "sem7",
+              "subjects": [
+                "sub1",
+                "sub2",
+                "sub3",
+                "sub4",
+                "sub5",
+                "sub6"
+              ]
+            },
+            {
+              "name": "semester8",
+              "slug": "sem8",
+              "subjects": [
+                "sub1",
+                "sub2",
+                "sub3",
+                "sub4",
+                "sub5",
+                "sub6"
+              ]
+            }
+          ]
+        },
+        {
+          "name": "CIVIL",
+          "slug": "ce",
+          "semesters": [
+            {
+              "name": "semester1",
+              "slug": "sem1",
+              "subjects": [
+                "sub1",
+                "sub2",
+                "sub3",
+                "sub4",
+                "sub5",
+                "sub6"
+              ]
+            },
+            {
+              "name": "semester2",
+              "slug": "sem2",
+              "subjects": [
+                "sub1",
+                "sub2",
+                "sub3",
+                "sub4",
+                "sub5",
+                "sub6"
+              ]
+            },
+            {
+              "name": "semester3",
+              "slug": "sem3",
+              "subjects": [
+                "sub1",
+                "sub2",
+                "sub3",
+                "sub4",
+                "sub5",
+                "sub6"
+              ]
+            },
+            {
+              "name": "semester4",
+              "slug": "sem4",
+              "subjects": [
+                "sub1",
+                "sub2",
+                "sub3",
+                "sub4",
+                "sub5",
+                "sub6"
+              ]
+            },
+            {
+              "name": "semester5",
+              "slug": "sem5",
+              "subjects": [
+                "sub1",
+                "sub2",
+                "sub3",
+                "sub4",
+                "sub5",
+                "sub6"
+              ]
+            },
+            {
+              "name": "semester6",
+              "slug": "sem6",
+              "subjects": [
+                "sub1",
+                "sub2",
+                "sub3",
+                "sub4",
+                "sub5",
+                "sub6"
+              ]
+            },
+            {
+              "name": "semester7",
+              "slug": "sem7",
+              "subjects": [
+                "sub1",
+                "sub2",
+                "sub3",
+                "sub4",
+                "sub5",
+                "sub6"
+              ]
+            },
+            {
+              "name": "semester8",
+              "slug": "sem8",
+              "subjects": [
+                "sub1",
+                "sub2",
+                "sub3",
+                "sub4",
+                "sub5",
+                "sub6"
+              ]
+            }
+          ]
+        },
+        {
+          "name": "Mechanical",
+          "slug": "Mec",
+          "semesters": [
+            {
+              "name": "semester1",
+              "slug": "sem1",
+              "subjects": [
+                "sub1",
+                "sub2",
+                "sub3",
+                "sub4",
+                "sub5",
+                "sub6"
+              ]
+            },
+            {
+              "name": "semester2",
+              "slug": "sem2",
+              "subjects": [
+                "sub1",
+                "sub2",
+                "sub3",
+                "sub4",
+                "sub5",
+                "sub6"
+              ]
+            },
+            {
+              "name": "semester3",
+              "slug": "sem3",
+              "subjects": [
+                "sub1",
+                "sub2",
+                "sub3",
+                "sub4",
+                "sub5",
+                "sub6"
+              ]
+            },
+            {
+              "name": "semester4",
+              "slug": "sem4",
+              "subjects": [
+                "sub1",
+                "sub2",
+                "sub3",
+                "sub4",
+                "sub5",
+                "sub6"
+              ]
+            },
+            {
+              "name": "semester5",
+              "slug": "sem5",
+              "subjects": [
+                "sub1",
+                "sub2",
+                "sub3",
+                "sub4",
+                "sub5",
+                "sub6"
+              ]
+            },
+            {
+              "name": "semester6",
+              "slug": "sem6",
+              "subjects": [
+                "sub1",
+                "sub2",
+                "sub3",
+                "sub4",
+                "sub5",
+                "sub6"
+              ]
+            },
+            {
+              "name": "semester7",
+              "slug": "sem7",
+              "subjects": [
+                "sub1",
+                "sub2",
+                "sub3",
+                "sub4",
+                "sub5",
+                "sub6"
+              ]
+            },
+            {
+              "name": "semester8",
+              "slug": "sem8",
+              "subjects": [
+                "sub1",
+                "sub2",
+                "sub3",
+                "sub4",
+                "sub5",
+                "sub6"
+              ]
+            }
+          ]
+        },
+        {
+          "name": "Electronics",
+          "slug": "ec",
+          "semesters": [
+            {
+              "name": "semester1",
+              "slug": "sem1",
+              "subjects": [
+                "sub1",
+                "sub2",
+                "sub3",
+                "sub4",
+                "sub5",
+                "sub6"
+              ]
+            },
+            {
+              "name": "semester2",
+              "slug": "sem2",
+              "subjects": [
+                "sub1",
+                "sub2",
+                "sub3",
+                "sub4",
+                "sub5",
+                "sub6"
+              ]
+            },
+            {
+              "name": "semester3",
+              "slug": "sem3",
+              "subjects": [
+                "sub1",
+                "sub2",
+                "sub3",
+                "sub4",
+                "sub5",
+                "sub6"
+              ]
+            },
+            {
+              "name": "semester4",
+              "slug": "sem4",
+              "subjects": [
+                "sub1",
+                "sub2",
+                "sub3",
+                "sub4",
+                "sub5",
+                "sub6"
+              ]
+            },
+            {
+              "name": "semester5",
+              "slug": "sem5",
+              "subjects": [
+                "sub1",
+                "sub2",
+                "sub3",
+                "sub4",
+                "sub5",
+                "sub6"
+              ]
+            },
+            {
+              "name": "semester6",
+              "slug": "sem6",
+              "subjects": [
+                "sub1",
+                "sub2",
+                "sub3",
+                "sub4",
+                "sub5",
+                "sub6"
+              ]
+            },
+            {
+              "name": "semester7",
+              "slug": "sem7",
+              "subjects": [
+                "sub1",
+                "sub2",
+                "sub3",
+                "sub4",
+                "sub5",
+                "sub6"
+              ]
+            },
+            {
+              "name": "semester8",
+              "slug": "sem8",
+              "subjects": [
+                "sub1",
+                "sub2",
+                "sub3",
+                "sub4",
+                "sub5",
+                "sub6"
+              ]
+            }
+          ]
+        },
+        {
+          "name": "safety and fire",
+          "slug": "sf",
+          "semesters": [
+            {
+              "name": "semester1",
+              "slug": "sem1",
+              "subjects": [
+                "sub1",
+                "sub2",
+                "sub3",
+                "sub4",
+                "sub5",
+                "sub6"
+              ]
+            },
+            {
+              "name": "semester2",
+              "slug": "sem2",
+              "subjects": [
+                "sub1",
+                "sub2",
+                "sub3",
+                "sub4",
+                "sub5",
+                "sub6"
+              ]
+            },
+            {
+              "name": "semester3",
+              "slug": "sem3",
+              "subjects": [
+                "sub1",
+                "sub2",
+                "sub3",
+                "sub4",
+                "sub5",
+                "sub6"
+              ]
+            },
+            {
+              "name": "semester4",
+              "slug": "sem4",
+              "subjects": [
+                "sub1",
+                "sub2",
+                "sub3",
+                "sub4",
+                "sub5",
+                "sub6"
+              ]
+            },
+            {
+              "name": "semester5",
+              "slug": "sem5",
+              "subjects": [
+                "sub1",
+                "sub2",
+                "sub3",
+                "sub4",
+                "sub5",
+                "sub6"
+              ]
+            },
+            {
+              "name": "semester6",
+              "slug": "sem6",
+              "subjects": [
+                "sub1",
+                "sub2",
+                "sub3",
+                "sub4",
+                "sub5",
+                "sub6"
+              ]
+            },
+            {
+              "name": "semester7",
+              "slug": "sem7",
+              "subjects": [
+                "sub1",
+                "sub2",
+                "sub3",
+                "sub4",
+                "sub5",
+                "sub6"
+              ]
+            },
+            {
+              "name": "semester8",
+              "slug": "sem8",
+              "subjects": [
+                "sub1",
+                "sub2",
+                "sub3",
+                "sub4",
+                "sub5",
+                "sub6"
+              ]
+            }
+          ]
+        },
+        {
+          "name": "Electrical",
+          "slug": "eee",
+          "semesters": [
+            {
+              "name": "semester1",
+              "slug": "sem1",
+              "subjects": [
+                "sub1",
+                "sub2",
+                "sub3",
+                "sub4",
+                "sub5",
+                "sub6"
+              ]
+            },
+            {
+              "name": "semester2",
+              "slug": "sem2",
+              "subjects": [
+                "sub1",
+                "sub2",
+                "sub3",
+                "sub4",
+                "sub5",
+                "sub6"
+              ]
+            },
+            {
+              "name": "semester3",
+              "slug": "sem3",
+              "subjects": [
+                "sub1",
+                "sub2",
+                "sub3",
+                "sub4",
+                "sub5",
+                "sub6"
+              ]
+            },
+            {
+              "name": "semester4",
+              "slug": "sem4",
+              "subjects": [
+                "sub1",
+                "sub2",
+                "sub3",
+                "sub4",
+                "sub5",
+                "sub6"
+              ]
+            },
+            {
+              "name": "semester5",
+              "slug": "sem5",
+              "subjects": [
+                "sub1",
+                "sub2",
+                "sub3",
+                "sub4",
+                "sub5",
+                "sub6"
+              ]
+            },
+            {
+              "name": "semester6",
+              "slug": "sem6",
+              "subjects": [
+                "sub1",
+                "sub2",
+                "sub3",
+                "sub4",
+                "sub5",
+                "sub6"
+              ]
+            },
+            {
+              "name": "semester7",
+              "slug": "sem7",
+              "subjects": [
+                "sub1",
+                "sub2",
+                "sub3",
+                "sub4",
+                "sub5",
+                "sub6"
+              ]
+            },
+            {
+              "name": "semester8",
+              "slug": "sem8",
+              "subjects": [
+                "sub1",
+                "sub2",
+                "sub3",
+                "sub4",
+                "sub5",
+                "sub6"
+              ]
+            }
+          ]
+        }
       ]
-  }
+    },
+    {
+      "name": "question paper",
+      "slug": "questionpaper",
+      "departments": [
+        {
+          "name": "IT",
+          "slug": "it",
+          "semesters": [
+            {
+              "name": "semester1",
+              "slug": "sem1",
+              "subjects": [
+                "sub1",
+                "sub2",
+                "sub3",
+                "sub4",
+                "sub5",
+                "sub6"
+              ]
+            },
+            {
+              "name": "semester2",
+              "slug": "sem2",
+              "subjects": [
+                "sub1",
+                "sub2",
+                "sub3",
+                "sub4",
+                "sub5",
+                "sub6"
+              ]
+            },
+            {
+              "name": "semester3",
+              "slug": "sem3",
+              "subjects": [
+                "sub1",
+                "sub2",
+                "sub3",
+                "sub4",
+                "sub5",
+                "sub6"
+              ]
+            },
+            {
+              "name": "semester4",
+              "slug": "sem4",
+              "subjects": [
+                "sub1",
+                "sub2",
+                "sub3",
+                "sub4",
+                "sub5",
+                "sub6"
+              ]
+            },
+            {
+              "name": "semester5",
+              "slug": "sem5",
+              "subjects": [
+                "sub1",
+                "sub2",
+                "sub3",
+                "sub4",
+                "sub5",
+                "sub6"
+              ]
+            },
+            {
+              "name": "semester6",
+              "slug": "sem6",
+              "subjects": [
+                "sub1",
+                "sub2",
+                "sub3",
+                "sub4",
+                "sub5",
+                "sub6"
+              ]
+            },
+            {
+              "name": "semester7",
+              "slug": "sem7",
+              "subjects": [
+                "sub1",
+                "sub2",
+                "sub3",
+                "sub4",
+                "sub5",
+                "sub6"
+              ]
+            },
+            {
+              "name": "semester8",
+              "slug": "sem8",
+              "subjects": [
+                "sub1",
+                "sub2",
+                "sub3",
+                "sub4",
+                "sub5",
+                "sub6"
+              ]
+            }
+          ]
+        },
+        {
+          "name": "CS",
+          "slug": "cs",
+          "semesters": [
+            {
+              "name": "semester1",
+              "slug": "sem1",
+              "subjects": [
+                "sub1",
+                "sub2",
+                "sub3",
+                "sub4",
+                "sub5",
+                "sub6"
+              ]
+            },
+            {
+              "name": "semester2",
+              "slug": "sem2",
+              "subjects": [
+                "sub1",
+                "sub2",
+                "sub3",
+                "sub4",
+                "sub5",
+                "sub6"
+              ]
+            },
+            {
+              "name": "semester3",
+              "slug": "sem3",
+              "subjects": [
+                "sub1",
+                "sub2",
+                "sub3",
+                "sub4",
+                "sub5",
+                "sub6"
+              ]
+            },
+            {
+              "name": "semester4",
+              "slug": "sem4",
+              "subjects": [
+                "sub1",
+                "sub2",
+                "sub3",
+                "sub4",
+                "sub5",
+                "sub6"
+              ]
+            },
+            {
+              "name": "semester5",
+              "slug": "sem5",
+              "subjects": [
+                "sub1",
+                "sub2",
+                "sub3",
+                "sub4",
+                "sub5",
+                "sub6"
+              ]
+            },
+            {
+              "name": "semester6",
+              "slug": "sem6",
+              "subjects": [
+                "sub1",
+                "sub2",
+                "sub3",
+                "sub4",
+                "sub5",
+                "sub6"
+              ]
+            },
+            {
+              "name": "semester7",
+              "slug": "sem7",
+              "subjects": [
+                "sub1",
+                "sub2",
+                "sub3",
+                "sub4",
+                "sub5",
+                "sub6"
+              ]
+            },
+            {
+              "name": "semester8",
+              "slug": "sem8",
+              "subjects": [
+                "sub1",
+                "sub2",
+                "sub3",
+                "sub4",
+                "sub5",
+                "sub6"
+              ]
+            }
+          ]
+        },
+        {
+          "name": "CIVIL",
+          "slug": "ce",
+          "semesters": [
+            {
+              "name": "semester1",
+              "slug": "sem1",
+              "subjects": [
+                "sub1",
+                "sub2",
+                "sub3",
+                "sub4",
+                "sub5",
+                "sub6"
+              ]
+            },
+            {
+              "name": "semester2",
+              "slug": "sem2",
+              "subjects": [
+                "sub1",
+                "sub2",
+                "sub3",
+                "sub4",
+                "sub5",
+                "sub6"
+              ]
+            },
+            {
+              "name": "semester3",
+              "slug": "sem3",
+              "subjects": [
+                "sub1",
+                "sub2",
+                "sub3",
+                "sub4",
+                "sub5",
+                "sub6"
+              ]
+            },
+            {
+              "name": "semester4",
+              "slug": "sem4",
+              "subjects": [
+                "sub1",
+                "sub2",
+                "sub3",
+                "sub4",
+                "sub5",
+                "sub6"
+              ]
+            },
+            {
+              "name": "semester5",
+              "slug": "sem5",
+              "subjects": [
+                "sub1",
+                "sub2",
+                "sub3",
+                "sub4",
+                "sub5",
+                "sub6"
+              ]
+            },
+            {
+              "name": "semester6",
+              "slug": "sem6",
+              "subjects": [
+                "sub1",
+                "sub2",
+                "sub3",
+                "sub4",
+                "sub5",
+                "sub6"
+              ]
+            },
+            {
+              "name": "semester7",
+              "slug": "sem7",
+              "subjects": [
+                "sub1",
+                "sub2",
+                "sub3",
+                "sub4",
+                "sub5",
+                "sub6"
+              ]
+            },
+            {
+              "name": "semester8",
+              "slug": "sem8",
+              "subjects": [
+                "sub1",
+                "sub2",
+                "sub3",
+                "sub4",
+                "sub5",
+                "sub6"
+              ]
+            }
+          ]
+        },
+        {
+          "name": "Mechanical",
+          "slug": "Mec",
+          "semesters": [
+            {
+              "name": "semester1",
+              "slug": "sem1",
+              "subjects": [
+                "sub1",
+                "sub2",
+                "sub3",
+                "sub4",
+                "sub5",
+                "sub6"
+              ]
+            },
+            {
+              "name": "semester2",
+              "slug": "sem2",
+              "subjects": [
+                "sub1",
+                "sub2",
+                "sub3",
+                "sub4",
+                "sub5",
+                "sub6"
+              ]
+            },
+            {
+              "name": "semester3",
+              "slug": "sem3",
+              "subjects": [
+                "sub1",
+                "sub2",
+                "sub3",
+                "sub4",
+                "sub5",
+                "sub6"
+              ]
+            },
+            {
+              "name": "semester4",
+              "slug": "sem4",
+              "subjects": [
+                "sub1",
+                "sub2",
+                "sub3",
+                "sub4",
+                "sub5",
+                "sub6"
+              ]
+            },
+            {
+              "name": "semester5",
+              "slug": "sem5",
+              "subjects": [
+                "sub1",
+                "sub2",
+                "sub3",
+                "sub4",
+                "sub5",
+                "sub6"
+              ]
+            },
+            {
+              "name": "semester6",
+              "slug": "sem6",
+              "subjects": [
+                "sub1",
+                "sub2",
+                "sub3",
+                "sub4",
+                "sub5",
+                "sub6"
+              ]
+            },
+            {
+              "name": "semester7",
+              "slug": "sem7",
+              "subjects": [
+                "sub1",
+                "sub2",
+                "sub3",
+                "sub4",
+                "sub5",
+                "sub6"
+              ]
+            },
+            {
+              "name": "semester8",
+              "slug": "sem8",
+              "subjects": [
+                "sub1",
+                "sub2",
+                "sub3",
+                "sub4",
+                "sub5",
+                "sub6"
+              ]
+            }
+          ]
+        },
+        {
+          "name": "Electronics",
+          "slug": "ec",
+          "semesters": [
+            {
+              "name": "semester1",
+              "slug": "sem1",
+              "subjects": [
+                "sub1",
+                "sub2",
+                "sub3",
+                "sub4",
+                "sub5",
+                "sub6"
+              ]
+            },
+            {
+              "name": "semester2",
+              "slug": "sem2",
+              "subjects": [
+                "sub1",
+                "sub2",
+                "sub3",
+                "sub4",
+                "sub5",
+                "sub6"
+              ]
+            },
+            {
+              "name": "semester3",
+              "slug": "sem3",
+              "subjects": [
+                "sub1",
+                "sub2",
+                "sub3",
+                "sub4",
+                "sub5",
+                "sub6"
+              ]
+            },
+            {
+              "name": "semester4",
+              "slug": "sem4",
+              "subjects": [
+                "sub1",
+                "sub2",
+                "sub3",
+                "sub4",
+                "sub5",
+                "sub6"
+              ]
+            },
+            {
+              "name": "semester5",
+              "slug": "sem5",
+              "subjects": [
+                "sub1",
+                "sub2",
+                "sub3",
+                "sub4",
+                "sub5",
+                "sub6"
+              ]
+            },
+            {
+              "name": "semester6",
+              "slug": "sem6",
+              "subjects": [
+                "sub1",
+                "sub2",
+                "sub3",
+                "sub4",
+                "sub5",
+                "sub6"
+              ]
+            },
+            {
+              "name": "semester7",
+              "slug": "sem7",
+              "subjects": [
+                "sub1",
+                "sub2",
+                "sub3",
+                "sub4",
+                "sub5",
+                "sub6"
+              ]
+            },
+            {
+              "name": "semester8",
+              "slug": "sem8",
+              "subjects": [
+                "sub1",
+                "sub2",
+                "sub3",
+                "sub4",
+                "sub5",
+                "sub6"
+              ]
+            }
+          ]
+        },
+        {
+          "name": "safety and fire",
+          "slug": "sf",
+          "semesters": [
+            {
+              "name": "semester1",
+              "slug": "sem1",
+              "subjects": [
+                "sub1",
+                "sub2",
+                "sub3",
+                "sub4",
+                "sub5",
+                "sub6"
+              ]
+            },
+            {
+              "name": "semester2",
+              "slug": "sem2",
+              "subjects": [
+                "sub1",
+                "sub2",
+                "sub3",
+                "sub4",
+                "sub5",
+                "sub6"
+              ]
+            },
+            {
+              "name": "semester3",
+              "slug": "sem3",
+              "subjects": [
+                "sub1",
+                "sub2",
+                "sub3",
+                "sub4",
+                "sub5",
+                "sub6"
+              ]
+            },
+            {
+              "name": "semester4",
+              "slug": "sem4",
+              "subjects": [
+                "sub1",
+                "sub2",
+                "sub3",
+                "sub4",
+                "sub5",
+                "sub6"
+              ]
+            },
+            {
+              "name": "semester5",
+              "slug": "sem5",
+              "subjects": [
+                "sub1",
+                "sub2",
+                "sub3",
+                "sub4",
+                "sub5",
+                "sub6"
+              ]
+            },
+            {
+              "name": "semester6",
+              "slug": "sem6",
+              "subjects": [
+                "sub1",
+                "sub2",
+                "sub3",
+                "sub4",
+                "sub5",
+                "sub6"
+              ]
+            },
+            {
+              "name": "semester7",
+              "slug": "sem7",
+              "subjects": [
+                "sub1",
+                "sub2",
+                "sub3",
+                "sub4",
+                "sub5",
+                "sub6"
+              ]
+            },
+            {
+              "name": "semester8",
+              "slug": "sem8",
+              "subjects": [
+                "sub1",
+                "sub2",
+                "sub3",
+                "sub4",
+                "sub5",
+                "sub6"
+              ]
+            }
+          ]
+        },
+        {
+          "name": "Electrical",
+          "slug": "eee",
+          "semesters": [
+            {
+              "name": "semester1",
+              "slug": "sem1",
+              "subjects": [
+                "sub1",
+                "sub2",
+                "sub3",
+                "sub4",
+                "sub5",
+                "sub6"
+              ]
+            },
+            {
+              "name": "semester2",
+              "slug": "sem2",
+              "subjects": [
+                "sub1",
+                "sub2",
+                "sub3",
+                "sub4",
+                "sub5",
+                "sub6"
+              ]
+            },
+            {
+              "name": "semester3",
+              "slug": "sem3",
+              "subjects": [
+                "sub1",
+                "sub2",
+                "sub3",
+                "sub4",
+                "sub5",
+                "sub6"
+              ]
+            },
+            {
+              "name": "semester4",
+              "slug": "sem4",
+              "subjects": [
+                "sub1",
+                "sub2",
+                "sub3",
+                "sub4",
+                "sub5",
+                "sub6"
+              ]
+            },
+            {
+              "name": "semester5",
+              "slug": "sem5",
+              "subjects": [
+                "sub1",
+                "sub2",
+                "sub3",
+                "sub4",
+                "sub5",
+                "sub6"
+              ]
+            },
+            {
+              "name": "semester6",
+              "slug": "sem6",
+              "subjects": [
+                "sub1",
+                "sub2",
+                "sub3",
+                "sub4",
+                "sub5",
+                "sub6"
+              ]
+            },
+            {
+              "name": "semester7",
+              "slug": "sem7",
+              "subjects": [
+                "sub1",
+                "sub2",
+                "sub3",
+                "sub4",
+                "sub5",
+                "sub6"
+              ]
+            },
+            {
+              "name": "semester8",
+              "slug": "sem8",
+              "subjects": [
+                "sub1",
+                "sub2",
+                "sub3",
+                "sub4",
+                "sub5",
+                "sub6"
+              ]
+            }
+          ]
+        }
+      ]
+    }
+  ]
+}
