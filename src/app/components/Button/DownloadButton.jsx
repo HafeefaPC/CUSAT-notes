@@ -1,15 +1,13 @@
 import React from 'react';
-import { cva } from "class-variance-authority"; // Import cva from class-variance-authority
-import Link from 'next/link';
+import { cva } from "class-variance-authority";
+import Link from 'next/link'; // Import Link from next/link
 import { clsx } from "clsx";
 import { twMerge } from "tailwind-merge";
 
-// Define cn function directly within the component
 function cn(...inputs) {
   return twMerge(clsx(inputs));
 }
 
-// Create buttonVariants function using cva
 const buttonVariants = cva(
   "inline-flex items-center justify-center whitespace-nowrap rounded-md text-sm font-medium ring-offset-background transition-colors focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ring focus-visible:ring-offset-2 disabled:pointer-events-none disabled:opacity-50",
   {
@@ -36,19 +34,19 @@ const buttonVariants = cva(
   }
 );
 
-const DownloadButton = ({ id, onClick }) => {
+const DownloadButton = ({ id, href }) => {
   return (
     <div className="flex items-center gap-2 py-2 duration-500 ease-out animate-in fade-in-0 zoom-in-50 slide-in-from-bottom-1/2">
-      <Link
-        href={onClick}
-        className={cn(
-          buttonVariants({ size: "lg" }), // Use buttonVariants as a function here
+
+      <Link href={href}>
+        <a className={cn(
+          buttonVariants({ size: "lg" }),
           "font-semibold shadow-lg transition-all duration-200 hover:ring-2 hover:ring-foreground hover:ring-offset-2 hover:ring-offset-background"
-        )}
-      >
-        {id}
+        )}>
+          {id}
+        </a>
       </Link>
-    </div >
+    </div>
   );
 };
 

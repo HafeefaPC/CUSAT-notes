@@ -1,36 +1,58 @@
-"use client"
-
+'use client'
 import React from "react";
 import pageButton from "../../data/pageButton.json";
+import { useRouter } from "next/navigation";
 
 const Page = ({ params }) => {
-  // const router = useRouter();
-  const { slug } = params || {}; // Check if router is defined
+  const router = useRouter();
+  const { slug } = params || [];
 
-  console.log(slug);
+  const resource = pageButton["/"].resources.find((r) => r.name === slug[0] || r.name === "notes");
 
-  const lastSegment = slug ? slug[slug.length - 1] : null;
-  
-  const isSemester = lastSegment && pageButton.subjects.some((subject) => subject.name === `/${lastSegment}`);
+  const handleDepartmentClick = (departmentSlug) => {
+    router.push(`/resources/${slug[0]}/${departmentSlug}`);
+  };
 
-  const subjectsToDisplay = isSemester
-    ? pageButton.subjects.find((subject) => subject.name === `/${lastSegment}`).subjects
-    : null;
+  const handleSemesterClick = (semesterSlug) => {
+    router.push(`/resources/${slug[0]}/${slug[1]}/${semesterSlug}`);
+  };
 
   return (
     <div>
       <h1>{slug ? slug.join("/") : ""}</h1>
-      <ul>
-        {subjectsToDisplay
-          ? subjectsToDisplay.map((subject, index) => (
-              <li key={index}>{subject}</li>
-            ))
-          : pageButton.semester.map((semester) => (
-              <li key={semester.name}>
-                <a href={`${semester.name}`}>{semester.name}</a>
-              </li>
-            ))}
-      </ul>
+      {resource ? (
+        <ul>
+          {resource.departments.map((department) => (
+            <li key={department.slug}>
+              <button onClick={() => handleDepartmentClick(department.slug)}>
+                {department.name}
+              </button>
+              {department.slug === slug[1] && (
+                <ul>
+                  {department.semesters.map((semester) => (
+                    <li key={semester.slug}>
+                      <button onClick={() => handleSemesterClick(semester.slug)}>
+                        {semester.name}
+                      </button>
+                      {semester.slug === slug[2] && (
+                        <ul>
+                          {semester.subjects.map((subject) => (
+                            <li key={subject.slug}>
+                              {subject.name}
+                            </li>
+                          ))}
+                        </ul>
+                      )}
+                    </li>
+                  ))}
+                </ul>
+              )}
+            </li>
+          ))}
+        </ul>
+      ) : (
+        <li>No data found</li>
+      )}
     </div>
   );
 };

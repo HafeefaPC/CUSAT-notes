@@ -2,8 +2,9 @@ import React from "react";
 import Image from "next/image";
 import Button from "../Button/DownloadButton";
 import homeoffice from "../../assets/images/home-office.svg";
-
+import Link from "next/link";
 function Hero() {
+
   return (
     <section
       id="hero"
@@ -23,7 +24,11 @@ function Hero() {
           Tailwind CSS, shadcn/ui, Drizzle ORM & more!
         </h2>
       </header>
-      <Button id="Resources" onClick="/resources"  >Resources</Button>
+
+
+      {/* <Button id="Resources" href="/resources">Resources</Button> */}
+
+
       <Image
         priority
         fetchPriority="high"
@@ -34,8 +39,8 @@ function Hero() {
         height={500}
         className="drop-shadow-xl duration-500 ease-out animate-in fade-in-0 zoom-in-50 slide-in-from-bottom-1/2 dark:invert"
       />
-    </section>
-  )
+    </section >
+  );
 }
 
 export default Hero;

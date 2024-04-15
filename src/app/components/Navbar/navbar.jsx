@@ -30,7 +30,7 @@ function LobbyNavbar() {
 
         <div className="flex flex-1 justify-end gap-2">
           <NavButton id="Resources" onClick="/resources" />
-
+          <NavButton id="Login" onClick="/login" />
 
         </div>
       </nav>
