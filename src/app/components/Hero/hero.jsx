@@ -1,9 +1,12 @@
-import React from "react";
+"use client"
+import React, { useState, useEffect } from 'react';
 import Image from "next/image";
+import Drag from "../../components/Drag/drag";
 import Button from "../Button/DownloadButton";
 import homeoffice from "../../assets/images/home-office.svg";
-import Link from "next/link";
+
 function Hero() {
+
 
   return (
     <section
@@ -26,8 +29,9 @@ function Hero() {
       </header>
 
 
-      {/* <Button id="Resources" href="/resources">Resources</Button> */}
 
+      {/* Render the button conditionally */}
+      {/* {!accessToken && <Button id="Login" onClick="/login">Login</Button>} */}
 
       <Image
         priority
@@ -39,7 +43,7 @@ function Hero() {
         height={500}
         className="drop-shadow-xl duration-500 ease-out animate-in fade-in-0 zoom-in-50 slide-in-from-bottom-1/2 dark:invert"
       />
-    </section >
+    </section>
   );
 }
 

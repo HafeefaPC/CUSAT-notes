@@ -1,5 +1,6 @@
+'use client'
 import Link from "next/link";
-
+import React, { useState, useEffect } from 'react';
 import NavButton from "../Button/navbutton"
 import { Logo } from "../ui/icon";
 import { clsx } from "clsx";
@@ -15,6 +16,18 @@ function cn(...inputs) {
   return twMerge(clsx(inputs));
 }
 function LobbyNavbar() {
+  const [accessToken, setAccessToken] = useState(null);
+  const [userEmail, setUserEmail] = useState(null);
+
+  useEffect(() => {
+    const token = localStorage.getItem('accessToken');
+    const email = localStorage.getItem('userEmail');
+
+    setAccessToken(token);
+    setUserEmail(email);
+    console.log(token, "accessToken")
+    console.log(email, "email");
+  }, []);
   return (
     <header className="mt-3 p-7 h-14">
       <nav className="container flex h-full items-center justify-between">
@@ -31,7 +44,9 @@ function LobbyNavbar() {
         <div className="flex flex-1 justify-end gap-2">
           <NavButton id="Resources" onClick="/resources" />
           <NavButton id="Login" onClick="/login" />
-
+          <NavButton id="Signup" onClick="/signup" />
+          {userEmail === 'hafeefapc2003@gmail.com' && <NavButton id="select" onClick="/fileselect" />}
+          {accessToken && < NavButton id="Upload" onClick="/fileupload" />}
         </div>
       </nav>
     </header>
