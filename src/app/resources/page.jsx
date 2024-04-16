@@ -14,15 +14,15 @@ export async function getDownloadLink() {
     window.location.href = downloadLink;
   } catch (error) {
     console.error(error);
-    // Handle error gracefully, e.g., display an error message to the user
+
   }
 }
 
 const page = () => {
   return (
     <div>
-      <Link href="/resources/notes"><Button>Notes</Button></Link>
-      <Link href="/resources/questions"><Button onClick={getDownloadLink}>Question Paper</Button></Link>
+      <Link href="/resources/n"><Button>Notes</Button></Link>
+      <Link href="/resources/q"><Button onClick={getDownloadLink}>Question Paper</Button></Link>
     </div>
   )
 }

@@ -8,11 +8,6 @@ import { clsx } from "clsx";
 import { twMerge } from "tailwind-merge";
 
 
-/**
- * Merges the given class names with the tailwind classes
- * @param inputs The class names to merge
- * @returns The merged class names
- */
 function cn(...inputs) {
   return twMerge(clsx(inputs));
 }
@@ -20,9 +15,6 @@ function LobbyNavbar() {
   const [accessToken, setAccessToken] = useState(null);
   const [userEmail, setUserEmail] = useState(null);
   const handleSignOut = () => {
-    localStorage.removeItem('usser');
-    localStorage.removeItem('userEmail');
-    setAccessToken(null);
     setUserEmail(null);
   };
 
