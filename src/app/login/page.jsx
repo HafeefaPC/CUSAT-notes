@@ -43,6 +43,7 @@ const LoginPage = () => {
             const result = await signInWithPopup(auth, provider);
             console.log(result.user);
             console.log(result.user.accessToken, result.user.email);
+            localStorage.setItem('user', result.user);
             localStorage.setItem('accessToken', result.user.accessToken);
             localStorage.setItem('userEmail', result.user.email);
 

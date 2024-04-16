@@ -2,6 +2,7 @@
 import Link from "next/link";
 import React, { useState, useEffect } from 'react';
 import NavButton from "../Button/navbutton"
+import { Signoutbutton } from "../Button/navbutton";
 import { Logo } from "../ui/icon";
 import { clsx } from "clsx";
 import { twMerge } from "tailwind-merge";
@@ -18,6 +19,12 @@ function cn(...inputs) {
 function LobbyNavbar() {
   const [accessToken, setAccessToken] = useState(null);
   const [userEmail, setUserEmail] = useState(null);
+  const handleSignOut = () => {
+    localStorage.removeItem('usser');
+    localStorage.removeItem('userEmail');
+    setAccessToken(null);
+    setUserEmail(null);
+  };
 
   useEffect(() => {
     const token = localStorage.getItem('accessToken');
@@ -43,10 +50,12 @@ function LobbyNavbar() {
 
         <div className="flex flex-1 justify-end gap-2">
           <NavButton id="Resources" onClick="/resources" />
-          <NavButton id="Login" onClick="/login" />
-          <NavButton id="Signup" onClick="/signup" />
+          {!userEmail && <NavButton id="Login" onClick="/login" />}
+          {!userEmail && <NavButton id="Signup" onClick="/signup" />}
+
+          {userEmail && <Signoutbutton id="Sign out" onClick={handleSignOut} />}
           {userEmail === 'hafeefapc2003@gmail.com' && <NavButton id="select" onClick="/fileselect" />}
-          {accessToken && < NavButton id="Upload" onClick="/fileupload" />}
+          {accessToken && < NavButton id="Upload" onClick="/upload" />}
         </div>
       </nav>
     </header>
