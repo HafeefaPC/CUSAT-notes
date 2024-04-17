@@ -1,7 +1,7 @@
 "use client"
 import React, { useState, useEffect } from 'react';
 import Image from "next/image";
-import Drag from "../../components/Drag/drag";
+import Drag from "../Drag/drag";
 import Button from "../Button/DownloadButton";
 import homeoffice from "../../assets/images/home-office.svg";
 

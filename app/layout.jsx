@@ -1,9 +1,9 @@
 import "./globals.css";
 
 
-import { Providers } from "../app/components/ui/providers";
-import { TailwindIndicator } from "../app/components/ui/tailwind-indicator";
-import { Toaster } from "../app/components/ui/sonner";
+import { Providers } from "../components/ui/providers.jsx";
+import { TailwindIndicator } from "../components/ui/tailwind-indicator";
+import { Toaster } from "../components/ui/sonner";
 
 
 import { fontHandwriting, fontHeading, fontMono, fontSans } from "../app/components/ui/fonts";
