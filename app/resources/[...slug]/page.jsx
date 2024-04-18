@@ -1,6 +1,6 @@
 "use client";
 import React from "react";
-import pageButton from "../../data/pageButton.json";
+import pageButton from "../../../data/pageButton.json";
 import { useRouter } from "next/navigation";
 
 const Page = ({ params }) => {

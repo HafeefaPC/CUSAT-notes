@@ -47,7 +47,8 @@ function LobbyNavbar() {
 
           {userEmail && <Signoutbutton id="Sign out" onClick={handleSignOut} />}
           {userEmail === 'hafeefapc2003@gmail.com' && <NavButton id="select" onClick="/fileselect" />}
-          {accessToken && < NavButton id="Upload" onClick="/upload" />}
+          {accessToken && < NavButton id="Upload" onClick="/fileupload" />}
+
         </div>
       </nav>
     </header>

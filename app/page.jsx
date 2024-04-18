@@ -1,9 +1,9 @@
 import React from 'react'
 
 import Link from 'next/link'
-import Hero from '../app/components/Hero/hero'
-import Navbar from "../app/components/Navbar/navbar"
-import Footer from "../app/components/Footer/footer"
+import Hero from '../components/Hero/hero'
+import Navbar from "../components/Navbar/navbar"
+import Footer from "../components/Footer/footer"
 
 const home = () => {
   return (

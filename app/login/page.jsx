@@ -1,7 +1,7 @@
 'use client'
 import React, { useState } from 'react';
 import { useRouter } from 'next/navigation';// Import the useRouter hook
-import { initFirebase } from "../../../firebase/firebaseApp";
+import { initFirebase } from "../../firebase/firebaseApp";
 import { getAuth, signInWithEmailAndPassword, GoogleAuthProvider, signInWithPopup } from "firebase/auth";
 import { useAuthState } from 'react-firebase-hooks/auth';
 const LoginPage = () => {

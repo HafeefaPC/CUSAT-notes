@@ -1,9 +1,8 @@
 "use client"
 import React, { useState, useEffect } from 'react';
 import Image from "next/image";
-import Drag from "../Drag/drag";
+import homeoffice from "../../app/assets/images/home-office.svg";
 import Button from "../Button/DownloadButton";
-import homeoffice from "../../assets/images/home-office.svg";
 
 function Hero() {
 
@@ -29,9 +28,8 @@ function Hero() {
       </header>
 
 
+      <Button id="Resources" onClick="/resources" />
 
-      {/* Render the button conditionally */}
-      {/* {!accessToken && <Button id="Login" onClick="/login">Login</Button>} */}
 
       <Image
         priority

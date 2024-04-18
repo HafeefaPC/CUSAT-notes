@@ -1,9 +1,6 @@
 import { Inter, JetBrains_Mono } from "next/font/google";
 import localFont from "next/font/local";
 
-/* -----------------------------------------------------------------------------------------------
- * Google Fonts
- * -----------------------------------------------------------------------------------------------*/
 
 export const fontSans = Inter({
   variable: "--font-sans",
@@ -15,17 +12,14 @@ export const fontMono = JetBrains_Mono({
   subsets: ["latin"],
 });
 
-/* -----------------------------------------------------------------------------------------------
- * Local Fonts
- * -----------------------------------------------------------------------------------------------*/
 
 export const fontHeading = localFont({
-  src: "../../../../public/fonts/CalSans-SemiBold.woff",
+  src: "../../public/fonts/CalSans-SemiBold.woff",
   variable: "--font-heading",
 });
 
 export const fontHandwriting = localFont({
-  src: "../../../../public/fonts/Virgil.woff2",
+  src: "../../public/fonts/Virgil.woff2",
   variable: "--font-handwriting",
 });
 

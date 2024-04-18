@@ -34,19 +34,21 @@ const buttonVariants = cva(
   }
 );
 
-const DownloadButton = ({ id, onclick }) => {
+const DownloadButton = ({ id, onClick }) => {
   return (
     <div className="flex items-center gap-2 py-2 duration-500 ease-out animate-in fade-in-0 zoom-in-50 slide-in-from-bottom-1/2">
 
-      <Link href={onclick}>
-        <a className={cn(
-          buttonVariants({ size: "lg" }),
+      <Link href={onClick}
+        className={cn(
+          buttonVariants({
+            variant: "outline", size: "lg"
+          }),
           "font-semibold shadow-lg transition-all duration-200 hover:ring-2 hover:ring-foreground hover:ring-offset-2 hover:ring-offset-background"
         )}>
-          {id}
-        </a>
+        {id}
+
       </Link>
-    </div>
+    </div >
   );
 };
 

@@ -1,5 +1,5 @@
 import React from 'react'
-import Drag from '../components/Drag/drag';
+import Drag from '../../components/Drag/drag';
 
 function page() {
     return (
