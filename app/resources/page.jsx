@@ -1,9 +1,9 @@
 "use client"
 
 import React from 'react'
-import { Button } from 'flowbite-react';
-import Link from 'next/link'
+
 import axios from 'axios';
+import Button from "../../components/Button/DownloadButton"
 
 
 export async function getDownloadLink() {
@@ -13,6 +13,7 @@ export async function getDownloadLink() {
     const downloadLink = response.data.downloadLink;
     window.location.href = downloadLink;
   } catch (error) {
+
     console.error(error);
 
   }
@@ -20,11 +21,11 @@ export async function getDownloadLink() {
 
 const page = () => {
   return (
-    <div>
-      <Link href="/resources/n"><Button>Notes</Button></Link>
-      <Link href="/resources/q"><Button onClick={getDownloadLink}>Question Paper</Button></Link>
-    </div>
+    <div className='p-10'>
+      <Button id="Notes" onClick="/resources/n" />
+      <Button id="Question Papers" onClick="/resources/q" />
+    </div >
   )
 }
 
-export default page
+export default page 
