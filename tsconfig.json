@@ -1,48 +1,48 @@
 {
-    "compilerOptions": {
-      "lib": [
-        "dom",
-        "dom.iterable",
-        "esnext"
-      ],
-      "allowJs": true,
-      "skipLibCheck": true,
-      "strict": true,
-      "forceConsistentCasingInFileNames": true,
-      "noEmit": true,
-      "incremental": true,
-      "esModuleInterop": true,
-      "module": "esnext",
-      "moduleResolution": "Bundler",
-      "resolveJsonModule": true,
-      "isolatedModules": true,
-      "jsx": "preserve",
-      "baseUrl": ".",
-      "paths": {
-        "@/*": [
-          "./*"
-        ]
-      },
-      "plugins": [
-        {
-          "name": "next"
-        }
-      ],
-      "strictNullChecks": true,
-      "target": "esnext"
-    },
-    "include": [
-      "next-env.d.js",
-      "**/*.ts",
-      "**/*.tsx",
-      ".next/types/**/*.ts",
-      "app/components/ui/providers.jsx",
-      "app/components/ui/tooltip.jsx",
-      "app/components/ui/tailwind-indicator.jsx",
-      "app/components/ui/sonner.jsx",
-      "app/components/ui/fonts.js"
+  "compilerOptions": {
+    "lib": [
+      "dom",
+      "dom.iterable",
+      "esnext"
     ],
-    "exclude": [
-      "node_modules"
-    ]
-  }
+    "allowJs": true,
+    "skipLibCheck": true,
+    "strict": true,
+    "forceConsistentCasingInFileNames": true,
+    "noEmit": true,
+    "incremental": true,
+    "esModuleInterop": true,
+    "module": "esnext",
+    "moduleResolution": "node",
+    "resolveJsonModule": true,
+    "isolatedModules": true,
+    "jsx": "preserve",
+    "baseUrl": ".",
+    "paths": {
+      "@/*": [
+        "./*"
+      ]
+    },
+    "plugins": [
+      {
+        "name": "next"
+      }
+    ],
+    "strictNullChecks": true,
+    "target": "esnext"
+  },
+  "include": [
+    "next-env.d.js",
+    "**/*.ts",
+    "**/*.tsx",
+    ".next/types/**/*.ts",
+    "app/components/ui/providers.jsx",
+    "app/components/ui/tooltip.jsx",
+    "app/components/ui/tailwind-indicator.jsx",
+    "app/components/ui/sonner.jsx",
+    "app/components/ui/fonts.js"
+  ],
+  "exclude": [
+    "node_modules"
+  ]
+}

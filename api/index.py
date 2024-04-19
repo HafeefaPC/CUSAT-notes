@@ -90,7 +90,7 @@ def return_home():
     })
 
 
-@app.route('/api/download',methods=['POST'])
+@app.route('/api/download')
 def download():
 
     filename = request.get_json()
@@ -112,5 +112,5 @@ def upload():
     asyncio.run(uploadfile(file_contents,filename))
     return 'File uploaded successfully'
 
-if __name__ == "__main__":
-    app.run(debug=True,port=8080)
+#if __name__ == "__main__":
+#    app.run(debug=True,port=8080)
