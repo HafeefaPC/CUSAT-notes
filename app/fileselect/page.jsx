@@ -24,19 +24,19 @@ export default function Page() {
     return (
         <div className="relative overflow-x-auto shadow-md sm:rounded-lg">
             <table className="w-full text-sm text-left rtl:text-right text-gray-500 dark:text-gray-400">
-                <thead className="text-xs text-gray-700 uppercase bg-gray-50 dark:bg-gray-700 dark:text-gray-400">
+                <thead className="text-xs text-gray-700 uppercase bg-gray-500 dark:bg-gray-700  dark:text-gray-400">
                     <tr>
-                        <th scope="col" className="px-6 py-3">FILENAME</th>
-                        <th scope="col" className="px-6 py-3 text-right">ACTION</th>
+                        <th scope="col" className="px-6 py-3 text-gray-800 dark:text-white">FILENAME</th>
+                        <th scope="col" className="px-6 py-3 text-right text-gray-800 dark:text-white">ACTION</th>
                     </tr>
                 </thead>
                 <tbody>
                     {files.map((file) => (
-                        <tr className="bg-white border-b dark:bg-gray-800 dark:border-gray-700" key={file.id}>
+                        <tr className="bg-gray-400 border-b dark:bg-gray-800 dark:border-gray-700" key={file.id}>
 
                             <th scope="row" className="px-6 py-4 font-medium text-gray-900 whitespace-nowrap dark:text-white">
                                 <h2 className="px-6 py-4">
-                                    <a href={file.url} target="_blank" rel="noopener noreferrer" className="cursor-pointer text-white">{file.name}</a>
+                                    <a href={file.url} target="_blank" rel="noopener noreferrer" className="cursor-pointer dark:text-white text-black">{file.name}</a>
                                 </h2>
                             </th>
                             <th scope="row" className=" flex flex-row px-6 py-4 font-medium text-gray-900 whitespace-nowrap dark:text-white justify-end p-4">

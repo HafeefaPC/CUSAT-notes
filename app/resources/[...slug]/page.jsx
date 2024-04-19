@@ -32,7 +32,7 @@ const Page = ({ params }) => {
         <ul>
           {resource.departments.map((department) => (
             <li key={department.slug}>
-              <button className="text-black bg-white hover:bg-blue-800 focus:ring-4 focus:ring-blue-300 font-medium rounded-lg text-sm px-5 py-2.5 me-2 mb-2 dark:bg-white dark:hover:bg-blue-700 focus:outline-none dark:focus:ring-blue-800" onClick={() => handleDepartmentClick(department.slug)}>
+              <button className="text-white dark:text-black   bg-gray-700 hover:bg-blue-800 focus:ring-4 focus:ring-blue-300 font-medium rounded-lg text-sm px-5 py-2.5 me-2 mb-2 dark:bg-white dark:hover:bg-blue-700 focus:outline-none dark:focus:ring-blue-800" onClick={() => handleDepartmentClick(department.slug)}>
                 {department.name}
               </button>
               {
@@ -40,7 +40,7 @@ const Page = ({ params }) => {
                   <ul>
                     {department.semesters.map((semester) => (
                       <li key={semester.slug}>
-                        <button className=" text-black bg-white hover:bg-blue-800 focus:ring-4 focus:ring-blue-300 font-medium rounded-lg text-sm px-5 py-2.5 me-2 mb-2 dark:bg-white dark:hover:bg-blue-700 focus:outline-none dark:focus:ring-blue-800" onClick={() => handleSemesterClick(semester.slug)}>
+                        <button className=" text-white dark:text-black   bg-gray-700 hover:bg-blue-800 focus:ring-4 focus:ring-blue-300 font-medium rounded-lg text-sm px-5 py-2.5 me-2 mb-2 dark:bg-white dark:hover:bg-blue-700 focus:outline-none dark:focus:ring-blue-800" onClick={() => handleSemesterClick(semester.slug)}>
                           {semester.name}
                         </button>
                         {
@@ -48,7 +48,7 @@ const Page = ({ params }) => {
                             <ul>
                               {semester.subjects.map((subject) => (
                                 <li key={subject.slug}>
-                                  <button className=" text-white bg-blue-700 hover:bg-blue-800 focus:ring-4 focus:ring-blue-300 font-medium rounded-lg text-sm px-5 py-2.5 me-2 mb-2 dark:bg-blue-600 dark:hover:bg-blue-700 focus:outline-none dark:focus:ring-blue-800" onClick={() => handleSubjectClick(subject.slug)}>
+                                  <button className=" text-white dark:text-black   bg-gray-700 hover:bg-blue-800 focus:ring-4 focus:ring-blue-300 font-medium rounded-lg text-sm px-5 py-2.5 me-2 mb-2 dark:bg-blue-600 dark:hover:bg-blue-700 focus:outline-none dark:focus:ring-blue-800" onClick={() => handleSubjectClick(subject.slug)}>
                                     {subject.name}
                                   </button>
                                 </li>

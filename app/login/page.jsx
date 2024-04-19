@@ -54,9 +54,9 @@ const LoginPage = () => {
     };
 
     return (
-        <div className="min-h-screen bg-black flex justify-center gap-5 items-center">
-            <div className='flex flex-col gap-7 border-2 border-white p-5 rounded-xl'>
-                <p className="font-bold text-2xl">LOGIN</p>
+        <div className="min-h-screen bg-white dark:bg-black flex justify-center gap-5 items-center">
+            <div className='flex flex-col gap-7 border-2 bg-black  border-white p-5 rounded-xl'>
+                <p className="font-bold text-2xl text-white ">LOGIN</p>
                 <input
                     type="email"
                     id="email"
