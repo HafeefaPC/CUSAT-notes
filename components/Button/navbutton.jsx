@@ -40,24 +40,23 @@ const Navbutton = ({ id, onClick }) => {
       <Link
         href={onClick}
         className={cn(
-          buttonVariants({
-            variants: "outline", size: "lg"
-          }),
-          "border h-8 rounded-full px-3 font-semibold transition-all duration-200 hover:ring-2 hover:ring-foreground hover:ring-offset-2 hover:ring-offset-background sm:inline-flex"
+          buttonVariants(), // Use buttonVariants as a function here
+          "h-8 rounded-full px-3 font-semibold transition-all duration-200 hover:ring-2 hover:ring-foreground hover:ring-offset-2 hover:ring-offset-background sm:inline-flex"
         )}>
         {id}
       </Link>
     </div >
   );
 };
+
 export const Signoutbutton = ({ id, onClick }) => {
   return (
-    <div className="flex  items-center gap-2 py-1 duration-500 ease-out animate-in fade-in-0 zoom-in-50 slide-in-from-bottom-1/2">
+    <div className="flex items-center gap-2 py-1 duration-500 ease-out animate-in fade-in-0 zoom-in-50 slide-in-from-bottom-1/2">
       <button
         onClick={onClick}
         className={cn(
-          buttonVariants(),
-          "border h-8 rounded-full px-3 font-semibold transition-all duration-200 hover:ring-2 hover:ring-foreground hover:ring-offset-2 hover:ring-offset-background sm:inline-flex"
+          buttonVariants(), // Use buttonVariants as a function here
+          "h-8 rounded-full px-3 font-semibold transition-all duration-200 hover:ring-2 hover:ring-foreground hover:ring-offset-2 hover:ring-offset-background sm:inline-flex"
         )}>
         {id}
       </button>

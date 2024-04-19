@@ -1,6 +1,9 @@
 import { Inter, JetBrains_Mono } from "next/font/google";
 import localFont from "next/font/local";
 
+/* -----------------------------------------------------------------------------------------------
+ * Google Fonts
+ * -----------------------------------------------------------------------------------------------*/
 
 export const fontSans = Inter({
   variable: "--font-sans",
@@ -12,6 +15,9 @@ export const fontMono = JetBrains_Mono({
   subsets: ["latin"],
 });
 
+/* -----------------------------------------------------------------------------------------------
+ * Local Fonts
+ * -----------------------------------------------------------------------------------------------*/
 
 export const fontHeading = localFont({
   src: "../../public/fonts/CalSans-SemiBold.woff",

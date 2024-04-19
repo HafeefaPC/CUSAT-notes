@@ -1,12 +1,12 @@
 import "./globals.css";
 
 
-import { Providers } from "../components/ui/providers.jsx";
+import { Providers } from "../components/ui/providers";
 import { TailwindIndicator } from "../components/ui/tailwind-indicator";
 import { Toaster } from "../components/ui/sonner";
 
 
-import { fontHandwriting, fontHeading, fontMono, fontSans } from "../components/ui/fonts.js";
+import { fontHandwriting, fontHeading, fontMono, fontSans } from "../components/ui/fonts";
 import { clsx } from "clsx";
 import { twMerge } from "tailwind-merge";
 
