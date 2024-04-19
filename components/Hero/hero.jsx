@@ -32,7 +32,7 @@ function Hero() {
 
       {/* Render the button conditionally */}
       {/* {!accessToken && <Button id="Login" onClick="/login">Login</Button>} */}
-      <Button id="Resources" onClick="/resourses">Resourses</Button>
+      <Button id="Resources" onClick="/resources">Resourses</Button>
 
       <Image
         priority

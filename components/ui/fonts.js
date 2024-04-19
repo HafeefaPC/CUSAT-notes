@@ -26,7 +26,7 @@ export const fontHeading = localFont({
 
 export const fontHandwriting = localFont({
   src: "../../public/fonts/Virgil.woff2",
-  variable: "--font-handwriting",
+  variable: "--font-hand  writing",
 });
 
 // ...

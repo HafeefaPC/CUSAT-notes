@@ -14,8 +14,18 @@ function cn(...inputs) {
 function LobbyNavbar() {
   const [accessToken, setAccessToken] = useState(null);
   const [userEmail, setUserEmail] = useState(null);
-  const handleSignOut = () => {
-    setUserEmail(null);
+  const logout = async () => {
+    try {
+      // Clear user data from local storage
+      localStorage.removeItem('accessToken');
+      localStorage.removeItem('userEmail');
+
+
+      // Redirect to the login page or any other page
+      router.push('/resourses');
+    } catch (error) {
+      console.error('Error signing out:', error);
+    }
   };
 
   useEffect(() => {
@@ -45,8 +55,8 @@ function LobbyNavbar() {
           {!userEmail && <NavButton id="Login" onClick="/login" />}
           {!userEmail && <NavButton id="Signup" onClick="/signup" />}
 
-          {userEmail && <Signoutbutton id="Sign out" onClick={handleSignOut} />}
-          {userEmail === 'hafeefapc2003@gmail.com' && <NavButton id="select" onClick="/fileselect" />}
+          {userEmail && <Signoutbutton id="Sign out" onClick={logout} />}
+          {userEmail === 'hafeefapc2003@gmail.com' && <NavButton id="Select" onClick="/fileselect" />}
           {accessToken && < NavButton id="Upload" onClick="/fileupload" />}
 
         </div>
