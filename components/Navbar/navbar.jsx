@@ -6,6 +6,8 @@ import { Signoutbutton } from "../Button/navbutton";
 import { Logo } from "../ui/icon";
 import { clsx } from "clsx";
 import { twMerge } from "tailwind-merge";
+import { auth } from "../../firebase/firebaseApp";
+import { useRouter } from 'next/navigation';
 
 
 function cn(...inputs) {
@@ -14,15 +16,17 @@ function cn(...inputs) {
 function LobbyNavbar() {
   const [accessToken, setAccessToken] = useState(null);
   const [userEmail, setUserEmail] = useState(null);
+  const router = useRouter();
   const logout = async () => {
     try {
-      // Clear user data from local storage
+      await auth.signOut();
+
+
       localStorage.removeItem('accessToken');
       localStorage.removeItem('userEmail');
 
 
-      // Redirect to the login page or any other page
-      router.push('/resourses');
+      router.push('/');
     } catch (error) {
       console.error('Error signing out:', error);
     }
