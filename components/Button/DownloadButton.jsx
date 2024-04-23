@@ -41,7 +41,7 @@ const DownloadButton = ({ id, onClick }) => {
 
         className={cn(
           buttonVariants({ size: "lg" }),
-          "font-semibold shadow-lg transition-all duration-200 hover:ring-2 hover:ring-foreground hover:ring-offset-2 hover:ring-offset-background"
+          "font-heading text-md font-bold  ease-out animate-in fade-in-0 zoom-in-5 ring-offset-background shadow-lg transition-all duration-200 hover:ring-2 hover:ring-foreground hover:ring-offset-2 hover:ring-offset-background"
         )}
       >
         {id}

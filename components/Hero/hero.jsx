@@ -14,7 +14,7 @@ function Hero() {
       className="flex w-full flex-col items-center justify-center gap-4 text-center"
     >
       <header className="mt-10 flex flex-col items-center gap-4">
-        <div className="shadow duration-500 ease-out animate-in fade-in-0 zoom-in-50 slide-in-from-bottom-1/2 inline-flex items-center rounded-full border px-2.5 py-0.5 text-xs font-semibold transition-colors focus:outline-none focus:ring-2 focus:ring-ring focus:ring-offset-2">
+        <div className="shadow duration-500 ease-out animate-in fade-in-0 zoom-in-50 slide-in-from-bottom-1/2 inline-flex items-center rounded-full border px-2.5 py-0.5 text-xs font-heading  font-bold   zoom-in-5  transition-colors focus:outline-none focus:ring-2 focus:ring-ring focus:ring-offset-2">
           ✨ Your Workspace, Perfected
         </div>
 

@@ -31,12 +31,11 @@ function sitefooter() {
           <div className="col-span-full flex items-center justify-between gap-4 md:flex-col">
             <Link
               href="/"
-              className="flex gap-2 font-handwriting text-xl lowercase [text-shadow:_0_2px_0_#e1e1e1] dark:[text-shadow:none]"
+              className="flex gap-1  font-handwriting text-xl lowercase [text-shadow:_0_2px_0_#e1e1e1] dark:[text-shadow:none]"
             >
               <Logo size={28} />
-              Hipus
+              <p className="font-heading text-md font-bold duration-500 ease-out animate-in fade-in-0 zoom-in-5">Hipus</p>
             </Link>
-
             <div className="flex justify-center gap-3 text-muted-foreground">
               <a
                 aria-label="GitHub Repository"
@@ -64,7 +63,7 @@ function sitefooter() {
 
           {footerLinks.map((section) => (
             <div key={section.title} className="flex flex-col gap-2.5">
-              <h3 className="mb-1 text-sm font-semibold lg:text-sm">
+              <h3 className="mb-1 text-sm font-heading  font-bold duration-500 ease-out animate-in fade-in-0 zoom-in-5 lg:text-sm">
                 {section.title}
               </h3>
 
@@ -74,7 +73,7 @@ function sitefooter() {
                   href='/'
                   target="_blank"
                   rel="noreferrer"
-                  className="text-sm text-muted-foreground duration-200 hover:text-foreground"
+                  className="text-xs font-heading  font-bold  ease-out animate-in fade-in-0 zoom-in-5 text-muted-foreground duration-200 hover:text-foreground"
                 >
                   {link}
                 </a>
@@ -82,11 +81,11 @@ function sitefooter() {
             </div>
           ))}
           <div className="col-span-full flex w-full flex-col gap-2 lg:max-w-[240px]">
-            <h3 className="mb-1.5 text-sm font-semibold lg:text-sm">
+            <h3 className="mb-1.5 text-sm font-heading  font-bold duration-500 ease-out animate-in fade-in-0 zoom-in-5 lg:text-sm">
               Subscribe to our newsletter
             </h3>
 
-            <p className="mb-1.5 text-[13px] leading-6 text-muted-foreground lg:text-sm">
+            <p className="mb-1.5 text-xs leading-6 font-heading   duration-500 ease-out animate-in fade-in-0 zoom-in-5 text-muted-foreground lg:text-xs">
               Join Our Community! Get exclusive travel offers and insider tips.
             </p>
 
@@ -95,14 +94,14 @@ function sitefooter() {
 
         <div className="mt-8 flex items-center justify-between lg:mt-12">
           <p className="mt-4 text-muted-foreground">
-            <span>
+            <span className="font-heading text-xs font-bold duration-500 ease-out animate-in fade-in-0 zoom-in-5">
               &copy; {new Date().getFullYear()} Hipus.
             </span>{" "}
-            <span>
+            <span className="font-heading text-xs font-bold duration-500 ease-out animate-in fade-in-0 zoom-in-5">
               Illustrations by{" "}
               <a
                 href="https://popsy.co/"
-                className="underline underline-offset-4 transition-colors hover:text-foreground"
+                className="underline underline-offset-4 font-heading text-xs font-bold duration-500 ease-out animate-in fade-in-0 zoom-in-5 transition-colors hover:text-foreground"
               >
                 Hipus
               </a>

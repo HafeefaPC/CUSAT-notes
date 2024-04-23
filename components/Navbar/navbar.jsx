@@ -43,13 +43,14 @@ function LobbyNavbar() {
   }, []);
   return (
     <header className="mt-3 p-7 h-14">
-      <nav className="container flex h-full items-center justify-between">
+      <nav className="container flex h-full items-center justify-between gap-3">
         <Link
           href="/"
-          className="flex gap-2 px-4 font-handwriting text-xl lowercase [text-shadow:_0_2px_0_#e1e1e1] dark:[text-shadow:none]"
+          className="flex gap-1 px-4 font-handwriting text-xl lowercase [text-shadow:_0_2px_0_#e1e1e1] dark:[text-shadow:none]"
         >
-          <Logo size={28} />
-          Hipus
+          <Logo size={28} className="" />
+
+          <p className="font-heading text-md font-bold duration-500 ease-out animate-in fade-in-0 zoom-in-5">Hipus</p>
         </Link>
 
 
