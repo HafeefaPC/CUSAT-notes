@@ -13,7 +13,7 @@
     "incremental": true,
     "esModuleInterop": true,
     "module": "esnext",
-    "moduleResolution": "Bundler",
+    "moduleResolution": "node",
     "resolveJsonModule": true,
     "isolatedModules": true,
     "jsx": "preserve",
@@ -36,11 +36,11 @@
     "**/*.ts",
     "**/*.tsx",
     ".next/types/**/*.ts",
-    "src/app/components/ui/providers.jsx",
-    "src/app/components/ui/tooltip.jsx",
-    "src/app/components/ui/tailwind-indicator.jsx",
-    "src/app/components/ui/sonner.jsx",
-    "src/app/components/ui/fonts.js"
+    "app/components/ui/providers.jsx",
+    "app/components/ui/tooltip.jsx",
+    "app/components/ui/tailwind-indicator.jsx",
+    "app/components/ui/sonner.jsx",
+    "app/components/ui/fonts.js"
   ],
   "exclude": [
     "node_modules"
