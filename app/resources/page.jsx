@@ -6,18 +6,18 @@ import axios from 'axios';
 import Button from "../../components/Button/DownloadButton"
 
 
-export async function getDownloadLink() {
-  const filename = 'sem_5.pdf'; // Replace with actual filename
-  try {
-    const response = await axios.get('/api/telegram');
-    const downloadLink = response.data.downloadLink;
-    window.location.href = downloadLink;
-  } catch (error) {
+// export async function getDownloadLink() {
+//   const filename = 'sem_5.pdf'; // Replace with actual filename
+//   try {
+//     const response = await axios.get('/api/telegram');
+//     const downloadLink = response.data.downloadLink;
+//     window.location.href = downloadLink;
+//   } catch (error) {
 
-    console.error(error);
+//     console.error(error);
 
-  }
-}
+//   }
+// }
 
 const page = () => {
   return (

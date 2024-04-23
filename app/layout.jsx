@@ -6,7 +6,7 @@ import { TailwindIndicator } from "../components/ui/tailwind-indicator";
 import { Toaster } from "../components/ui/sonner";
 
 
-import { fontHandwriting, fontHeading, fontMono, fontSans } from "../components/ui/fonts";
+
 import { clsx } from "clsx";
 import { twMerge } from "tailwind-merge";
 
@@ -20,10 +20,7 @@ export default function RootLayout({ children }) {
     <html lang="en" suppressHydrationWarning>
       <body
         className={cn(
-          fontSans.variable,
-          fontMono.variable,
-          fontHeading.variable,
-          fontHandwriting.variable,
+
           "min-h-screen scroll-smooth font-sans antialiased selection:bg-foreground selection:text-background"
         )}
       >

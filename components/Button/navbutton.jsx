@@ -41,7 +41,7 @@ const Navbutton = ({ id, onClick }) => {
         href={onClick}
         className={cn(
           buttonVariants(), // Use buttonVariants as a function here
-          "h-8 rounded-full px-3 font-heading text-md font-bold  ease-out animate-in fade-in-0 zoom-in-5 transition-all duration-200 hover:ring-2 hover:ring-foreground hover:ring-offset-2 hover:ring-offset-background sm:inline-flex"
+          "h-8 rounded-full px-3 font-heading text-sm  ease-out animate-in fade-in-0 zoom-in-5 transition-all duration-200 hover:ring-2 hover:ring-foreground hover:ring-offset-2 hover:ring-offset-background sm:inline-flex"
         )}>
         {id}
       </Link>
