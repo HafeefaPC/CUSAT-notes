@@ -1,0 +1,1552 @@
+{
+    "/": {
+      "resources": [
+        {
+          "name": "notes",
+          "slug": "n",
+          "departments": [
+            {
+              "name": "IT",
+              "slug": "it",
+              "semesters": [
+                {
+                  "name": "Semester 1",
+                  "slug": "01",
+                  "subjects": [
+                    {
+                      "name": "SSD",
+                      "slug": "ssd"
+                    },
+                    {
+                      "name": "BME",
+                      "slug": "bme"
+                    }
+                  ]
+                },
+                {
+                  "name": "Semester 2",
+                  "slug": "sem2",
+                  "subjects": [
+                    {
+                      "name": "chemistry",
+                      "slug": "che"
+                    },
+                    {
+                      "name": "graphics",
+                      "slug": "ghp"
+                    }
+                  ]
+                },
+                {
+                  "name": "Semester 3",
+                  "slug": "sem3",
+                  "subjects": [
+                    {
+                      "name": "SSD",
+                      "slug": "ssd"
+                    },
+                    {
+                      "name": "BME",
+                      "slug": "bme"
+                    }
+                  ]
+                },
+                {
+                  "name": "Semester 4",
+                  "slug": "sem4",
+                  "subjects": [
+                    {
+                      "name": "SSD",
+                      "slug": "ssd"
+                    },
+                    {
+                      "name": "BME",
+                      "slug": "bme"
+                    }
+                  ]
+                },
+                {
+                  "name": "Semester 5",
+                  "slug": "sem5",
+                  "subjects": [
+                    {
+                      "name": "SSD",
+                      "slug": "ssd"
+                    },
+                    {
+                      "name": "BME",
+                      "slug": "bme"
+                    }
+                  ]
+                },
+                {
+                  "name": "Semester 6",
+                  "slug": "sem6",
+                  "subjects": [
+                    {
+                      "name": "SSD",
+                      "slug": "ssd"
+                    },
+                    {
+                      "name": "BME",
+                      "slug": "bme"
+                    }
+                  ]
+                },
+                {
+                  "name": "Semester 7 ",
+                  "slug": "sem7",
+                  "subjects": [
+                    {
+                      "name": "SSD",
+                      "slug": "ssd"
+                    },
+                    {
+                      "name": "BME",
+                      "slug": "bme"
+                    }
+                  ]
+                },
+                {
+                  "name": "Semester 8",
+                  "slug": "sem8",
+                  "subjects": [
+                    {
+                      "name": "SSD",
+                      "slug": "ssd"
+                    },
+                    {
+                      "name": "BME",
+                      "slug": "bme"
+                    }
+                  ]
+                }
+              ]
+            },
+            {
+              "name": "CS",
+              "slug": "cs",
+              "semesters": [
+                {
+                  "name": "Semester 1",
+                  "slug": "01",
+                  "subjects": [
+                    {
+                      "name": "SSD",
+                      "slug": "ssd"
+                    },
+                    {
+                      "name": "BME",
+                      "slug": "bme"
+                    }
+                  ]
+                },
+                {
+                  "name": "Semester 2",
+                  "slug": "sem2",
+                  "subjects": [
+                    {
+                      "name": "chemistry",
+                      "slug": "che"
+                    },
+                    {
+                      "name": "graphics",
+                      "slug": "ghp"
+                    }
+                  ]
+                },
+                {
+                  "name": "Semester 3",
+                  "slug": "sem3",
+                  "subjects": [
+                    {
+                      "name": "SSD",
+                      "slug": "ssd"
+                    },
+                    {
+                      "name": "BME",
+                      "slug": "bme"
+                    }
+                  ]
+                },
+                {
+                  "name": "Semester 4",
+                  "slug": "sem4",
+                  "subjects": [
+                    {
+                      "name": "SSD",
+                      "slug": "ssd"
+                    },
+                    {
+                      "name": "BME",
+                      "slug": "bme"
+                    }
+                  ]
+                },
+                {
+                  "name": "Semester 5",
+                  "slug": "sem5",
+                  "subjects": [
+                    {
+                      "name": "SSD",
+                      "slug": "ssd"
+                    },
+                    {
+                      "name": "BME",
+                      "slug": "bme"
+                    }
+                  ]
+                },
+                {
+                  "name": "Semester 6",
+                  "slug": "sem6",
+                  "subjects": [
+                    {
+                      "name": "SSD",
+                      "slug": "ssd"
+                    },
+                    {
+                      "name": "BME",
+                      "slug": "bme"
+                    }
+                  ]
+                },
+                {
+                  "name": "Semester 7 ",
+                  "slug": "sem7",
+                  "subjects": [
+                    {
+                      "name": "SSD",
+                      "slug": "ssd"
+                    },
+                    {
+                      "name": "BME",
+                      "slug": "bme"
+                    }
+                  ]
+                },
+                {
+                  "name": "Semester 8",
+                  "slug": "sem8",
+                  "subjects": [
+                    {
+                      "name": "SSD",
+                      "slug": "ssd"
+                    },
+                    {
+                      "name": "BME",
+                      "slug": "bme"
+                    }
+                  ]
+                }
+              ]
+            },
+            {
+              "name": "EC",
+              "slug": "ec",
+              "semesters": [
+                {
+                  "name": "Semester 1",
+                  "slug": "01",
+                  "subjects": [
+                    {
+                      "name": "SSD",
+                      "slug": "ssd"
+                    },
+                    {
+                      "name": "BME",
+                      "slug": "bme"
+                    }
+                  ]
+                },
+                {
+                  "name": "Semester 2",
+                  "slug": "sem2",
+                  "subjects": [
+                    {
+                      "name": "chemistry",
+                      "slug": "che"
+                    },
+                    {
+                      "name": "graphics",
+                      "slug": "ghp"
+                    }
+                  ]
+                },
+                {
+                  "name": "Semester 3",
+                  "slug": "sem3",
+                  "subjects": [
+                    {
+                      "name": "SSD",
+                      "slug": "ssd"
+                    },
+                    {
+                      "name": "BME",
+                      "slug": "bme"
+                    }
+                  ]
+                },
+                {
+                  "name": "Semester 4",
+                  "slug": "sem4",
+                  "subjects": [
+                    {
+                      "name": "SSD",
+                      "slug": "ssd"
+                    },
+                    {
+                      "name": "BME",
+                      "slug": "bme"
+                    }
+                  ]
+                },
+                {
+                  "name": "Semester 5",
+                  "slug": "sem5",
+                  "subjects": [
+                    {
+                      "name": "SSD",
+                      "slug": "ssd"
+                    },
+                    {
+                      "name": "BME",
+                      "slug": "bme"
+                    }
+                  ]
+                },
+                {
+                  "name": "Semester 6",
+                  "slug": "sem6",
+                  "subjects": [
+                    {
+                      "name": "SSD",
+                      "slug": "ssd"
+                    },
+                    {
+                      "name": "BME",
+                      "slug": "bme"
+                    }
+                  ]
+                },
+                {
+                  "name": "Semester 7 ",
+                  "slug": "sem7",
+                  "subjects": [
+                    {
+                      "name": "SSD",
+                      "slug": "ssd"
+                    },
+                    {
+                      "name": "BME",
+                      "slug": "bme"
+                    }
+                  ]
+                },
+                {
+                  "name": "Semester 8",
+                  "slug": "sem8",
+                  "subjects": [
+                    {
+                      "name": "SSD",
+                      "slug": "ssd"
+                    },
+                    {
+                      "name": "BME",
+                      "slug": "bme"
+                    }
+                  ]
+                }
+              ]
+            },
+            {
+              "name": "EE",
+              "slug": "ee",
+              "semesters": [
+                {
+                  "name": "Semester 1",
+                  "slug": "01",
+                  "subjects": [
+                    {
+                      "name": "SSD",
+                      "slug": "ssd"
+                    },
+                    {
+                      "name": "BME",
+                      "slug": "bme"
+                    }
+                  ]
+                },
+                {
+                  "name": "Semester 2",
+                  "slug": "sem2",
+                  "subjects": [
+                    {
+                      "name": "chemistry",
+                      "slug": "che"
+                    },
+                    {
+                      "name": "graphics",
+                      "slug": "ghp"
+                    }
+                  ]
+                },
+                {
+                  "name": "Semester 3",
+                  "slug": "sem3",
+                  "subjects": [
+                    {
+                      "name": "SSD",
+                      "slug": "ssd"
+                    },
+                    {
+                      "name": "BME",
+                      "slug": "bme"
+                    }
+                  ]
+                },
+                {
+                  "name": "Semester 4",
+                  "slug": "sem4",
+                  "subjects": [
+                    {
+                      "name": "SSD",
+                      "slug": "ssd"
+                    },
+                    {
+                      "name": "BME",
+                      "slug": "bme"
+                    }
+                  ]
+                },
+                {
+                  "name": "Semester 5",
+                  "slug": "sem5",
+                  "subjects": [
+                    {
+                      "name": "SSD",
+                      "slug": "ssd"
+                    },
+                    {
+                      "name": "BME",
+                      "slug": "bme"
+                    }
+                  ]
+                },
+                {
+                  "name": "Semester 6",
+                  "slug": "sem6",
+                  "subjects": [
+                    {
+                      "name": "SSD",
+                      "slug": "ssd"
+                    },
+                    {
+                      "name": "BME",
+                      "slug": "bme"
+                    }
+                  ]
+                },
+                {
+                  "name": "Semester 7 ",
+                  "slug": "sem7",
+                  "subjects": [
+                    {
+                      "name": "SSD",
+                      "slug": "ssd"
+                    },
+                    {
+                      "name": "BME",
+                      "slug": "bme"
+                    }
+                  ]
+                },
+                {
+                  "name": "Semester 8",
+                  "slug": "sem8",
+                  "subjects": [
+                    {
+                      "name": "SSD",
+                      "slug": "ssd"
+                    },
+                    {
+                      "name": "BME",
+                      "slug": "bme"
+                    }
+                  ]
+                }
+              ]
+            },
+            {
+              "name": "CE",
+              "slug": "ce",
+              "semesters": [
+                {
+                  "name": "Semester 1",
+                  "slug": "01",
+                  "subjects": [
+                    {
+                      "name": "SSD",
+                      "slug": "ssd"
+                    },
+                    {
+                      "name": "BME",
+                      "slug": "bme"
+                    }
+                  ]
+                },
+                {
+                  "name": "Semester 2",
+                  "slug": "sem2",
+                  "subjects": [
+                    {
+                      "name": "chemistry",
+                      "slug": "che"
+                    },
+                    {
+                      "name": "graphics",
+                      "slug": "ghp"
+                    }
+                  ]
+                },
+                {
+                  "name": "Semester 3",
+                  "slug": "sem3",
+                  "subjects": [
+                    {
+                      "name": "SSD",
+                      "slug": "ssd"
+                    },
+                    {
+                      "name": "BME",
+                      "slug": "bme"
+                    }
+                  ]
+                },
+                {
+                  "name": "Semester 4",
+                  "slug": "sem4",
+                  "subjects": [
+                    {
+                      "name": "SSD",
+                      "slug": "ssd"
+                    },
+                    {
+                      "name": "BME",
+                      "slug": "bme"
+                    }
+                  ]
+                },
+                {
+                  "name": "Semester 5",
+                  "slug": "sem5",
+                  "subjects": [
+                    {
+                      "name": "SSD",
+                      "slug": "ssd"
+                    },
+                    {
+                      "name": "BME",
+                      "slug": "bme"
+                    }
+                  ]
+                },
+                {
+                  "name": "Semester 6",
+                  "slug": "sem6",
+                  "subjects": [
+                    {
+                      "name": "SSD",
+                      "slug": "ssd"
+                    },
+                    {
+                      "name": "BME",
+                      "slug": "bme"
+                    }
+                  ]
+                },
+                {
+                  "name": "Semester 7 ",
+                  "slug": "sem7",
+                  "subjects": [
+                    {
+                      "name": "SSD",
+                      "slug": "ssd"
+                    },
+                    {
+                      "name": "BME",
+                      "slug": "bme"
+                    }
+                  ]
+                },
+                {
+                  "name": "Semester 8",
+                  "slug": "sem8",
+                  "subjects": [
+                    {
+                      "name": "SSD",
+                      "slug": "ssd"
+                    },
+                    {
+                      "name": "BME",
+                      "slug": "bme"
+                    }
+                  ]
+                }
+              ]
+            },
+            {
+              "name": "ME",
+              "slug": "me",
+              "semesters": [
+                {
+                  "name": "Semester 1",
+                  "slug": "01",
+                  "subjects": [
+                    {
+                      "name": "SSD",
+                      "slug": "ssd"
+                    },
+                    {
+                      "name": "BME",
+                      "slug": "bme"
+                    }
+                  ]
+                },
+                {
+                  "name": "Semester 2",
+                  "slug": "sem2",
+                  "subjects": [
+                    {
+                      "name": "chemistry",
+                      "slug": "che"
+                    },
+                    {
+                      "name": "graphics",
+                      "slug": "ghp"
+                    }
+                  ]
+                },
+                {
+                  "name": "Semester 3",
+                  "slug": "sem3",
+                  "subjects": [
+                    {
+                      "name": "SSD",
+                      "slug": "ssd"
+                    },
+                    {
+                      "name": "BME",
+                      "slug": "bme"
+                    }
+                  ]
+                },
+                {
+                  "name": "Semester 4",
+                  "slug": "sem4",
+                  "subjects": [
+                    {
+                      "name": "SSD",
+                      "slug": "ssd"
+                    },
+                    {
+                      "name": "BME",
+                      "slug": "bme"
+                    }
+                  ]
+                },
+                {
+                  "name": "Semester 5",
+                  "slug": "sem5",
+                  "subjects": [
+                    {
+                      "name": "SSD",
+                      "slug": "ssd"
+                    },
+                    {
+                      "name": "BME",
+                      "slug": "bme"
+                    }
+                  ]
+                },
+                {
+                  "name": "Semester 6",
+                  "slug": "sem6",
+                  "subjects": [
+                    {
+                      "name": "SSD",
+                      "slug": "ssd"
+                    },
+                    {
+                      "name": "BME",
+                      "slug": "bme"
+                    }
+                  ]
+                },
+                {
+                  "name": "Semester 7 ",
+                  "slug": "sem7",
+                  "subjects": [
+                    {
+                      "name": "SSD",
+                      "slug": "ssd"
+                    },
+                    {
+                      "name": "BME",
+                      "slug": "bme"
+                    }
+                  ]
+                },
+                {
+                  "name": "Semester 8",
+                  "slug": "sem8",
+                  "subjects": [
+                    {
+                      "name": "SSD",
+                      "slug": "ssd"
+                    },
+                    {
+                      "name": "BME",
+                      "slug": "bme"
+                    }
+                  ]
+                }
+              ]
+            },
+            {
+              "name": "SF",
+              "slug": "sf",
+              "semesters": [
+                {
+                  "name": "Semester 1",
+                  "slug": "01",
+                  "subjects": [
+                    {
+                      "name": "SSD",
+                      "slug": "ssd"
+                    },
+                    {
+                      "name": "BME",
+                      "slug": "bme"
+                    }
+                  ]
+                },
+                {
+                  "name": "Semester 2",
+                  "slug": "sem2",
+                  "subjects": [
+                    {
+                      "name": "chemistry",
+                      "slug": "che"
+                    },
+                    {
+                      "name": "graphics",
+                      "slug": "ghp"
+                    }
+                  ]
+                },
+                {
+                  "name": "Semester 3",
+                  "slug": "sem3",
+                  "subjects": [
+                    {
+                      "name": "SSD",
+                      "slug": "ssd"
+                    },
+                    {
+                      "name": "BME",
+                      "slug": "bme"
+                    }
+                  ]
+                },
+                {
+                  "name": "Semester 4",
+                  "slug": "sem4",
+                  "subjects": [
+                    {
+                      "name": "SSD",
+                      "slug": "ssd"
+                    },
+                    {
+                      "name": "BME",
+                      "slug": "bme"
+                    }
+                  ]
+                },
+                {
+                  "name": "Semester 5",
+                  "slug": "sem5",
+                  "subjects": [
+                    {
+                      "name": "SSD",
+                      "slug": "ssd"
+                    },
+                    {
+                      "name": "BME",
+                      "slug": "bme"
+                    }
+                  ]
+                },
+                {
+                  "name": "Semester 6",
+                  "slug": "sem6",
+                  "subjects": [
+                    {
+                      "name": "SSD",
+                      "slug": "ssd"
+                    },
+                    {
+                      "name": "BME",
+                      "slug": "bme"
+                    }
+                  ]
+                },
+                {
+                  "name": "Semester 7 ",
+                  "slug": "sem7",
+                  "subjects": [
+                    {
+                      "name": "SSD",
+                      "slug": "ssd"
+                    },
+                    {
+                      "name": "BME",
+                      "slug": "bme"
+                    }
+                  ]
+                },
+                {
+                  "name": "Semester 8",
+                  "slug": "sem8",
+                  "subjects": [
+                    {
+                      "name": "SSD",
+                      "slug": "ssd"
+                    },
+                    {
+                      "name": "BME",
+                      "slug": "bme"
+                    }
+                  ]
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "name": "question",
+          "slug": "q",
+          "departments": [
+            {
+              "name": "IT",
+              "slug": "it",
+              "semesters": [
+                {
+                  "name": "Semester 1",
+                  "slug": "01",
+                  "subjects": [
+                    {
+                      "name": "SSD",
+                      "slug": "ssd"
+                    },
+                    {
+                      "name": "BME",
+                      "slug": "bme"
+                    }
+                  ]
+                },
+                {
+                  "name": "Semester 2",
+                  "slug": "sem2",
+                  "subjects": [
+                    {
+                      "name": "chemistry",
+                      "slug": "che"
+                    },
+                    {
+                      "name": "graphics",
+                      "slug": "ghp"
+                    }
+                  ]
+                },
+                {
+                  "name": "Semester 3",
+                  "slug": "sem3",
+                  "subjects": [
+                    {
+                      "name": "SSD",
+                      "slug": "ssd"
+                    },
+                    {
+                      "name": "BME",
+                      "slug": "bme"
+                    }
+                  ]
+                },
+                {
+                  "name": "Semester 4",
+                  "slug": "sem4",
+                  "subjects": [
+                    {
+                      "name": "SSD",
+                      "slug": "ssd"
+                    },
+                    {
+                      "name": "BME",
+                      "slug": "bme"
+                    }
+                  ]
+                },
+                {
+                  "name": "Semester 5",
+                  "slug": "sem5",
+                  "subjects": [
+                    {
+                      "name": "SSD",
+                      "slug": "ssd"
+                    },
+                    {
+                      "name": "BME",
+                      "slug": "bme"
+                    }
+                  ]
+                },
+                {
+                  "name": "Semester 6",
+                  "slug": "sem6",
+                  "subjects": [
+                    {
+                      "name": "SSD",
+                      "slug": "ssd"
+                    },
+                    {
+                      "name": "BME",
+                      "slug": "bme"
+                    }
+                  ]
+                },
+                {
+                  "name": "Semester 7 ",
+                  "slug": "sem7",
+                  "subjects": [
+                    {
+                      "name": "SSD",
+                      "slug": "ssd"
+                    },
+                    {
+                      "name": "BME",
+                      "slug": "bme"
+                    }
+                  ]
+                },
+                {
+                  "name": "Semester 8",
+                  "slug": "sem8",
+                  "subjects": [
+                    {
+                      "name": "SSD",
+                      "slug": "ssd"
+                    },
+                    {
+                      "name": "BME",
+                      "slug": "bme"
+                    }
+                  ]
+                }
+              ]
+            },
+            {
+              "name": "EE",
+              "slug": "ee",
+              "semesters": [
+                {
+                  "name": "Semester 1",
+                  "slug": "01",
+                  "subjects": [
+                    {
+                      "name": "SSD",
+                      "slug": "ssd"
+                    },
+                    {
+                      "name": "BME",
+                      "slug": "bme"
+                    }
+                  ]
+                },
+                {
+                  "name": "Semester 2",
+                  "slug": "sem2",
+                  "subjects": [
+                    {
+                      "name": "chemistry",
+                      "slug": "che"
+                    },
+                    {
+                      "name": "graphics",
+                      "slug": "ghp"
+                    }
+                  ]
+                },
+                {
+                  "name": "Semester 3",
+                  "slug": "sem3",
+                  "subjects": [
+                    {
+                      "name": "SSD",
+                      "slug": "ssd"
+                    },
+                    {
+                      "name": "BME",
+                      "slug": "bme"
+                    }
+                  ]
+                },
+                {
+                  "name": "Semester 4",
+                  "slug": "sem4",
+                  "subjects": [
+                    {
+                      "name": "SSD",
+                      "slug": "ssd"
+                    },
+                    {
+                      "name": "BME",
+                      "slug": "bme"
+                    }
+                  ]
+                },
+                {
+                  "name": "Semester 5",
+                  "slug": "sem5",
+                  "subjects": [
+                    {
+                      "name": "SSD",
+                      "slug": "ssd"
+                    },
+                    {
+                      "name": "BME",
+                      "slug": "bme"
+                    }
+                  ]
+                },
+                {
+                  "name": "Semester 6",
+                  "slug": "sem6",
+                  "subjects": [
+                    {
+                      "name": "SSD",
+                      "slug": "ssd"
+                    },
+                    {
+                      "name": "BME",
+                      "slug": "bme"
+                    }
+                  ]
+                },
+                {
+                  "name": "Semester 7 ",
+                  "slug": "sem7",
+                  "subjects": [
+                    {
+                      "name": "SSD",
+                      "slug": "ssd"
+                    },
+                    {
+                      "name": "BME",
+                      "slug": "bme"
+                    }
+                  ]
+                },
+                {
+                  "name": "Semester 8",
+                  "slug": "sem8",
+                  "subjects": [
+                    {
+                      "name": "SSD",
+                      "slug": "ssd"
+                    },
+                    {
+                      "name": "BME",
+                      "slug": "bme"
+                    }
+                  ]
+                }
+              ]
+            },
+            {
+              "name": "CS",
+              "slug": "cs",
+              "semesters": [
+                {
+                  "name": "Semester 1",
+                  "slug": "01",
+                  "subjects": [
+                    {
+                      "name": "SSD",
+                      "slug": "ssd"
+                    },
+                    {
+                      "name": "BME",
+                      "slug": "bme"
+                    }
+                  ]
+                },
+                {
+                  "name": "Semester 2",
+                  "slug": "sem2",
+                  "subjects": [
+                    {
+                      "name": "chemistry",
+                      "slug": "che"
+                    },
+                    {
+                      "name": "graphics",
+                      "slug": "ghp"
+                    }
+                  ]
+                },
+                {
+                  "name": "Semester 3",
+                  "slug": "sem3",
+                  "subjects": [
+                    {
+                      "name": "SSD",
+                      "slug": "ssd"
+                    },
+                    {
+                      "name": "BME",
+                      "slug": "bme"
+                    }
+                  ]
+                },
+                {
+                  "name": "Semester 4",
+                  "slug": "sem4",
+                  "subjects": [
+                    {
+                      "name": "SSD",
+                      "slug": "ssd"
+                    },
+                    {
+                      "name": "BME",
+                      "slug": "bme"
+                    }
+                  ]
+                },
+                {
+                  "name": "Semester 5",
+                  "slug": "sem5",
+                  "subjects": [
+                    {
+                      "name": "SSD",
+                      "slug": "ssd"
+                    },
+                    {
+                      "name": "BME",
+                      "slug": "bme"
+                    }
+                  ]
+                },
+                {
+                  "name": "Semester 6",
+                  "slug": "sem6",
+                  "subjects": [
+                    {
+                      "name": "SSD",
+                      "slug": "ssd"
+                    },
+                    {
+                      "name": "BME",
+                      "slug": "bme"
+                    }
+                  ]
+                },
+                {
+                  "name": "Semester 7 ",
+                  "slug": "sem7",
+                  "subjects": [
+                    {
+                      "name": "SSD",
+                      "slug": "ssd"
+                    },
+                    {
+                      "name": "BME",
+                      "slug": "bme"
+                    }
+                  ]
+                },
+                {
+                  "name": "Semester 8",
+                  "slug": "sem8",
+                  "subjects": [
+                    {
+                      "name": "SSD",
+                      "slug": "ssd"
+                    },
+                    {
+                      "name": "BME",
+                      "slug": "bme"
+                    }
+                  ]
+                }
+              ]
+            },
+            {
+              "name": "ME",
+              "slug": "me",
+              "semesters": [
+                {
+                  "name": "Semester 1",
+                  "slug": "01",
+                  "subjects": [
+                    {
+                      "name": "SSD",
+                      "slug": "ssd"
+                    },
+                    {
+                      "name": "BME",
+                      "slug": "bme"
+                    }
+                  ]
+                },
+                {
+                  "name": "Semester 2",
+                  "slug": "sem2",
+                  "subjects": [
+                    {
+                      "name": "chemistry",
+                      "slug": "che"
+                    },
+                    {
+                      "name": "graphics",
+                      "slug": "ghp"
+                    }
+                  ]
+                },
+                {
+                  "name": "Semester 3",
+                  "slug": "sem3",
+                  "subjects": [
+                    {
+                      "name": "SSD",
+                      "slug": "ssd"
+                    },
+                    {
+                      "name": "BME",
+                      "slug": "bme"
+                    }
+                  ]
+                },
+                {
+                  "name": "Semester 4",
+                  "slug": "sem4",
+                  "subjects": [
+                    {
+                      "name": "SSD",
+                      "slug": "ssd"
+                    },
+                    {
+                      "name": "BME",
+                      "slug": "bme"
+                    }
+                  ]
+                },
+                {
+                  "name": "Semester 5",
+                  "slug": "sem5",
+                  "subjects": [
+                    {
+                      "name": "SSD",
+                      "slug": "ssd"
+                    },
+                    {
+                      "name": "BME",
+                      "slug": "bme"
+                    }
+                  ]
+                },
+                {
+                  "name": "Semester 6",
+                  "slug": "sem6",
+                  "subjects": [
+                    {
+                      "name": "SSD",
+                      "slug": "ssd"
+                    },
+                    {
+                      "name": "BME",
+                      "slug": "bme"
+                    }
+                  ]
+                },
+                {
+                  "name": "Semester 7 ",
+                  "slug": "sem7",
+                  "subjects": [
+                    {
+                      "name": "SSD",
+                      "slug": "ssd"
+                    },
+                    {
+                      "name": "BME",
+                      "slug": "bme"
+                    }
+                  ]
+                },
+                {
+                  "name": "Semester 8",
+                  "slug": "sem8",
+                  "subjects": [
+                    {
+                      "name": "SSD",
+                      "slug": "ssd"
+                    },
+                    {
+                      "name": "BME",
+                      "slug": "bme"
+                    }
+                  ]
+                }
+              ]
+            },
+            {
+              "name": "CE",
+              "slug": "ce",
+              "semesters": [
+                {
+                  "name": "Semester 1",
+                  "slug": "01",
+                  "subjects": [
+                    {
+                      "name": "SSD",
+                      "slug": "ssd"
+                    },
+                    {
+                      "name": "BME",
+                      "slug": "bme"
+                    }
+                  ]
+                },
+                {
+                  "name": "Semester 2",
+                  "slug": "sem2",
+                  "subjects": [
+                    {
+                      "name": "chemistry",
+                      "slug": "che"
+                    },
+                    {
+                      "name": "graphics",
+                      "slug": "ghp"
+                    }
+                  ]
+                },
+                {
+                  "name": "Semester 3",
+                  "slug": "sem3",
+                  "subjects": [
+                    {
+                      "name": "SSD",
+                      "slug": "ssd"
+                    },
+                    {
+                      "name": "BME",
+                      "slug": "bme"
+                    }
+                  ]
+                },
+                {
+                  "name": "Semester 4",
+                  "slug": "sem4",
+                  "subjects": [
+                    {
+                      "name": "SSD",
+                      "slug": "ssd"
+                    },
+                    {
+                      "name": "BME",
+                      "slug": "bme"
+                    }
+                  ]
+                },
+                {
+                  "name": "Semester 5",
+                  "slug": "sem5",
+                  "subjects": [
+                    {
+                      "name": "SSD",
+                      "slug": "ssd"
+                    },
+                    {
+                      "name": "BME",
+                      "slug": "bme"
+                    }
+                  ]
+                },
+                {
+                  "name": "Semester 6",
+                  "slug": "sem6",
+                  "subjects": [
+                    {
+                      "name": "SSD",
+                      "slug": "ssd"
+                    },
+                    {
+                      "name": "BME",
+                      "slug": "bme"
+                    }
+                  ]
+                },
+                {
+                  "name": "Semester 7 ",
+                  "slug": "sem7",
+                  "subjects": [
+                    {
+                      "name": "SSD",
+                      "slug": "ssd"
+                    },
+                    {
+                      "name": "BME",
+                      "slug": "bme"
+                    }
+                  ]
+                },
+                {
+                  "name": "Semester 8",
+                  "slug": "sem8",
+                  "subjects": [
+                    {
+                      "name": "SSD",
+                      "slug": "ssd"
+                    },
+                    {
+                      "name": "BME",
+                      "slug": "bme"
+                    }
+                  ]
+                }
+              ]
+            },
+            {
+              "name": "SF",
+              "slug": "sf",
+              "semesters": [
+                {
+                  "name": "Semester 1",
+                  "slug": "01",
+                  "subjects": [
+                    {
+                      "name": "SSD",
+                      "slug": "ssd"
+                    },
+                    {
+                      "name": "BME",
+                      "slug": "bme"
+                    }
+                  ]
+                },
+                {
+                  "name": "Semester 2",
+                  "slug": "sem2",
+                  "subjects": [
+                    {
+                      "name": "chemistry",
+                      "slug": "che"
+                    },
+                    {
+                      "name": "graphics",
+                      "slug": "ghp"
+                    }
+                  ]
+                },
+                {
+                  "name": "Semester 3",
+                  "slug": "sem3",
+                  "subjects": [
+                    {
+                      "name": "SSD",
+                      "slug": "ssd"
+                    },
+                    {
+                      "name": "BME",
+                      "slug": "bme"
+                    }
+                  ]
+                },
+                {
+                  "name": "Semester 4",
+                  "slug": "sem4",
+                  "subjects": [
+                    {
+                      "name": "SSD",
+                      "slug": "ssd"
+                    },
+                    {
+                      "name": "BME",
+                      "slug": "bme"
+                    }
+                  ]
+                },
+                {
+                  "name": "Semester 5",
+                  "slug": "sem5",
+                  "subjects": [
+                    {
+                      "name": "SSD",
+                      "slug": "ssd"
+                    },
+                    {
+                      "name": "BME",
+                      "slug": "bme"
+                    }
+                  ]
+                },
+                {
+                  "name": "Semester 6",
+                  "slug": "sem6",
+                  "subjects": [
+                    {
+                      "name": "SSD",
+                      "slug": "ssd"
+                    },
+                    {
+                      "name": "BME",
+                      "slug": "bme"
+                    }
+                  ]
+                },
+                {
+                  "name": "Semester 7 ",
+                  "slug": "sem7",
+                  "subjects": [
+                    {
+                      "name": "SSD",
+                      "slug": "ssd"
+                    },
+                    {
+                      "name": "BME",
+                      "slug": "bme"
+                    }
+                  ]
+                },
+                {
+                  "name": "Semester 8",
+                  "slug": "sem8",
+                  "subjects": [
+                    {
+                      "name": "SSD",
+                      "slug": "ssd"
+                    },
+                    {
+                      "name": "BME",
+                      "slug": "bme"
+                    }
+                  ]
+                }
+              ]
+            }
+          ]
+        }
+      ]
+    }
+  }
