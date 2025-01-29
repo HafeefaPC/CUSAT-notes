@@ -8,6 +8,8 @@ export interface StudyMaterial {
   uploadedBy: string;
   uploadDate: string;
   fileUrl: string;
+  messageId: string;
+  status: 'pending' | 'accepted' | 'rejected';
   slug: {
     dept: string;
     sem: string;

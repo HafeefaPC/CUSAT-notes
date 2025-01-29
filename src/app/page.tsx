@@ -24,10 +24,11 @@ export default function Home() {
       try {
         setLoading(true);
         const data = await getFilesFromGroup();
-        console.log('Fetched materials:', data);
-        setMaterials(data);
+        // Only show accepted materials
+        const acceptedMaterials = data.filter(m => m.status === 'accepted');
+        setMaterials(acceptedMaterials);
       } catch (error) {
-        console.error('Failed to fetch materials:', error);
+        setMaterials([]);
       } finally {
         setLoading(false);
       }
