@@ -37,9 +37,9 @@ export default function LoginPage() {
         router.push('/admin');
         router.refresh();
       }, 100);
-    } catch (error) {
-      console.error('Login error:', error);
-      setError(error instanceof Error ? error.message : 'Login failed');
+    } catch (err) {
+      console.error('Login error:', err);
+      setError(err instanceof Error ? err.message : 'Login failed');
     } finally {
       setLoading(false);
     }
@@ -54,7 +54,7 @@ export default function LoginPage() {
           router.push('/admin');
         }
       } catch (error) {
-        // Not logged in, stay on login page
+        console.error('Error checking authentication:', error);
       }
     };
     checkAuth();

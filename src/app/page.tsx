@@ -6,7 +6,7 @@ import FilterSection from '@/components/FilterSection';
 import { FilterOptions, StudyMaterial } from '@/types';
 import { ModeToggle } from '@/components/mode-toggle';
 import { MaterialsGrid } from '@/components/MaterialsGrid';
-import { getFilesFromGroup, sendTestMessage } from '@/lib/telegram';
+import { sendTestMessage } from '@/lib/telegram';
 import { Button } from '@/components/ui/button';
 
 export default function Home() {
@@ -28,6 +28,7 @@ export default function Home() {
         const data = await response.json();
         setMaterials(data);
       } catch (error) {
+        console.error('Error fetching materials:', error);
         setMaterials([]);
       } finally {
         setLoading(false);

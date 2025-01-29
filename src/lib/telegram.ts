@@ -1,5 +1,4 @@
 import { StudyMaterial } from '@/types';
-import { supabase, insertMaterial, updateMaterialStatusLocal } from './supabase';
 import { supabaseAdmin } from '@/lib/supabase-admin';
 
 const TELEGRAM_BOT_TOKEN = process.env.NEXT_PUBLIC_TELEGRAM_BOT_TOKEN!;

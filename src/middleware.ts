@@ -18,9 +18,9 @@ export async function middleware(request: NextRequest) {
       
       // Token is valid, allow the request
       return NextResponse.next();
-    } catch (error) {
+    } catch (err) {
       // Token is invalid
-      console.error('Token verification failed:', error);
+      console.error('Token verification failed:', err);
       return NextResponse.redirect(new URL('/login', request.url));
     }
   }
@@ -34,7 +34,7 @@ export async function middleware(request: NextRequest) {
         await jose.jwtVerify(token, secret);
         return NextResponse.redirect(new URL('/admin', request.url));
       } catch (error) {
-        // Invalid token, allow access to login
+        console.error('Token verification failed:', error);
       }
     }
   }

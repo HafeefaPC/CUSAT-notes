@@ -3,67 +3,64 @@ import { getAuthToken, verifyAuth } from '@/lib/auth';
 import { deleteMaterialFromGroup } from '@/lib/telegram';
 import { supabaseAdmin } from '@/lib/supabase-admin';
 
-export async function POST(
-  request: NextRequest,
-  { params }: { params: { id: string; action: string } }
-) {
+export async function POST(request: NextRequest) {
   try {
+    // Authentication
     const token = await getAuthToken();
     const user = token ? await verifyAuth(token) : null;
-
     if (!user) {
       return NextResponse.json({ error: 'Unauthorized' }, { status: 401 });
     }
 
-    const { id, action } = params;
-    const body = await request.json();
-    const { messageId } = body;
+    // Extract route parameters from URL
+    const pathSegments = request.nextUrl.pathname.split('/');
+    const id = pathSegments[4]; // [api, admin, materials, :id, :action]
+    const action = pathSegments[5];
+
+    // Validate action type
+    if (!['accept', 'reject', 'delete'].includes(action)) {
+      return NextResponse.json({ error: 'Invalid action' }, { status: 400 });
+    }
+
+    // Extract messageId from request body
+    const { messageId } = await request.json();
 
     console.log('Processing action:', { id, action, messageId });
 
+    // Handle different actions
     switch (action) {
       case 'accept':
       case 'reject': {
-        // Convert action to correct status
         const status = action === 'accept' ? 'accepted' : 'rejected';
-        
         const { error } = await supabaseAdmin
           .from('materials')
           .update({ status })
           .eq('telegram_file_id', id);
 
-        if (error) {
-          console.error('Supabase update error:', error);
-          throw error;
-        }
+        if (error) throw new Error(`Database update failed: ${error.message}`);
         break;
       }
+
       case 'delete': {
         const deleted = await deleteMaterialFromGroup(messageId);
-        if (deleted) {
-          const { error } = await supabaseAdmin
-            .from('materials')
-            .update({ status: 'deleted' })
-            .eq('telegram_file_id', id);
+        if (!deleted) throw new Error('Telegram deletion failed');
 
-          if (error) {
-            console.error('Supabase delete error:', error);
-            throw error;
-          }
-        } else {
-          throw new Error('Failed to delete from Telegram');
-        }
+        const { error } = await supabaseAdmin
+          .from('materials')
+          .update({ status: 'deleted' })
+          .eq('telegram_file_id', id);
+
+        if (error) throw new Error(`Deletion status update failed: ${error.message}`);
         break;
       }
-      default:
-        return NextResponse.json({ error: 'Invalid action' }, { status: 400 });
     }
 
     return NextResponse.json({ success: true });
   } catch (error) {
     console.error('Action handler error:', error);
-    return NextResponse.json({ 
-      error: error instanceof Error ? error.message : 'Action failed' 
-    }, { status: 500 });
+    return NextResponse.json(
+      { error: error instanceof Error ? error.message : 'Action failed' },
+      { status: 500 }
+    );
   }
-} 
+}
