@@ -9,12 +9,12 @@ export interface StudyMaterial {
   uploadDate: string;
   fileUrl: string;
   messageId: string;
-  status: 'pending' | 'accepted' | 'rejected';
   slug: {
     dept: string;
     sem: string;
     sub: string;
   };
+  status?: 'pending' | 'accepted' | 'rejected';
 }
 
 export interface FilterOptions {

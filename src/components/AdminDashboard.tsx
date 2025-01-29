@@ -38,9 +38,11 @@ export function AdminDashboard() {
       const response = await fetch('/api/admin/materials');
       if (!response.ok) throw new Error('Failed to fetch materials');
       const data = await response.json();
+      console.log('Fetched materials:', data); // Debug log
       setMaterials(data);
     } catch (error) {
       console.error('Failed to fetch materials:', error);
+      setMaterials([]);
     } finally {
       setLoading(false);
     }
@@ -56,19 +58,27 @@ export function AdminDashboard() {
         body: JSON.stringify({ messageId }),
       });
       
-      if (!response.ok) throw new Error('Action failed');
+      const data = await response.json();
       
-      // Update local state immediately
+      if (!response.ok) {
+        throw new Error(data.error || 'Action failed');
+      }
+      
+      // Update local state immediately with correct status
       setMaterials(prevMaterials => {
         if (action === 'delete') {
           return prevMaterials.filter(m => m.id !== id);
         }
         return prevMaterials.map(m => 
-          m.id === id ? { ...m, status: action === 'accept' ? 'accepted' : 'rejected' } : m
+          m.id === id ? { 
+            ...m, 
+            status: action === 'accept' ? 'accepted' : 'rejected'
+          } : m
         );
       });
     } catch (error) {
       console.error(`Failed to ${action} material:`, error);
+      alert(error instanceof Error ? error.message : 'Action failed');
     }
   };
 
@@ -102,7 +112,8 @@ export function AdminDashboard() {
       accepted: 'secondary',
       rejected: 'destructive'
     };
-    return <Badge variant={variants[status] || 'default'}>{status}</Badge>;
+    const displayStatus = status || 'pending';
+    return <Badge variant={variants[displayStatus] || 'default'}>{displayStatus}</Badge>;
   };
 
   return (
@@ -144,7 +155,7 @@ export function AdminDashboard() {
                   <TableCell>{material.department}</TableCell>
                   <TableCell>{material.semester}</TableCell>
                   <TableCell>{material.subject}</TableCell>
-                  <TableCell>{getStatusBadge(material.status)}</TableCell>
+                  <TableCell>{getStatusBadge(material.status || 'pending')}</TableCell>
                   <TableCell>
                     <div className="flex gap-2">
                       <Button

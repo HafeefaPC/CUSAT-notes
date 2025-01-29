@@ -23,10 +23,10 @@ export default function Home() {
     const fetchMaterials = async () => {
       try {
         setLoading(true);
-        const data = await getFilesFromGroup();
-        // Only show accepted materials
-        const acceptedMaterials = data.filter(m => m.status === 'accepted');
-        setMaterials(acceptedMaterials);
+        const response = await fetch('/api/materials');
+        if (!response.ok) throw new Error('Failed to fetch materials');
+        const data = await response.json();
+        setMaterials(data);
       } catch (error) {
         setMaterials([]);
       } finally {

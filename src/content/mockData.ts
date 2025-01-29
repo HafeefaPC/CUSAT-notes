@@ -21,7 +21,9 @@ export const mockMaterials: StudyMaterial[] = departments.flatMap(dept =>
           dept: dept.slug,
           sem: sem.slug,
           sub: sub.slug
-        }
+        },
+        messageId: `${dept.slug}-${sem.slug}-${sub.slug}`,
+        status: 'pending'
       }))
     })
   )

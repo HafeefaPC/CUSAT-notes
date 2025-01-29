@@ -1,4 +1,6 @@
 import { StudyMaterial } from '@/types';
+import { supabase, insertMaterial, updateMaterialStatusLocal } from './supabase';
+import { supabaseAdmin } from '@/lib/supabase-admin';
 
 const TELEGRAM_BOT_TOKEN = process.env.NEXT_PUBLIC_TELEGRAM_BOT_TOKEN!;
 const TELEGRAM_GROUP_ID = process.env.NEXT_PUBLIC_TELEGRAM_GROUP_ID!;
@@ -16,62 +18,122 @@ export interface TelegramFile {
 
 export async function getFilesFromGroup(): Promise<StudyMaterial[]> {
   try {
-    const response = await fetch(
-      `${BOT_API_URL}/getUpdates?chat_id=${TELEGRAM_GROUP_ID}&limit=100&allowed_updates=["message"]`,
-      { cache: 'no-store' }
-    );
-    const data = await response.json();
-
-    if (!data.ok) return [];
-
-    const materials: StudyMaterial[] = [];
-    const seenIds = new Set<string>(); // Track unique IDs
+    console.log('Fetching messages from Telegram...');
     
+    const response = await fetch(
+      `${BOT_API_URL}/getUpdates?chat_id=${TELEGRAM_GROUP_ID}&limit=100`,
+      { 
+        cache: 'no-store',
+        headers: {
+          'Content-Type': 'application/json',
+        }
+      }
+    );
+    
+    const data = await response.json();
+    console.log('Telegram Response:', data);
+
+    if (!data.ok) {
+      console.error('Telegram API Error:', data);
+      return [];
+    }
+
+    // Process new materials from Telegram
     for (const update of data.result) {
       if (update.message?.document) {
         const doc = update.message.document;
-        const caption = update.message.caption || '';
-        
-        // Skip if we've seen this ID before
-        if (seenIds.has(doc.file_unique_id)) continue;
-        seenIds.add(doc.file_unique_id);
+        const caption = update.message.caption || doc.file_name || 'Untitled';
         
         try {
-          const [semester = 'Unknown', department = 'Unknown', subject = 'Unknown', type = 'notes'] = 
-            caption.split('_').map((part: string) => part.trim());
+          // Check if material already exists
+          const { data: existing } = await supabaseAdmin
+            .from('materials')
+            .select('telegram_file_id')
+            .eq('telegram_file_id', doc.file_unique_id)
+            .single();
 
-          // Get status from memory or default to pending
-          const status = materialStatuses.get(doc.file_unique_id) || 'pending';
+          if (existing) continue;
 
-          // Skip deleted materials
-          if (status === 'deleted') continue;
+          // Parse caption for metadata
+          let semester = 'Unknown';
+          let department = 'Unknown';
+          let subject = 'Unknown';
+          let type = 'notes';
 
-          materials.push({
+          if (caption.includes('_')) {
+            const parts = caption.split('_').map((part: string) => part.trim());
+            semester = parts[0] || 'Unknown';
+            department = parts[1] || 'Unknown';
+            subject = parts[2] || 'Unknown';
+            type = (parts[3] || '').toLowerCase().includes('note') ? 'notes' : 'question_paper';
+          }
+
+          console.log('Processing document:', {
             id: doc.file_unique_id,
-            title: doc.file_name || caption,
-            type: type.toLowerCase().includes('note') ? 'notes' : 'question_paper',
-            department,
-            semester,
-            subject,
-            uploadedBy: update.message.from?.username || 'Anonymous',
-            uploadDate: new Date(update.message.date * 1000).toISOString(),
-            fileUrl: doc.file_id,
-            messageId: update.message.message_id.toString(),
-            status,
-            slug: {
-              dept: department.toLowerCase(),
-              sem: semester.toLowerCase(),
-              sub: subject.toLowerCase()
-            }
+            title: doc.file_name,
+            metadata: { semester, department, subject, type }
           });
-        } catch {
+
+          // Insert new material into Supabase
+          const { error: insertError } = await supabaseAdmin
+            .from('materials')
+            .insert({
+              telegram_file_id: doc.file_unique_id,
+              telegram_message_id: update.message.message_id.toString(),
+              title: doc.file_name || caption,
+              type,
+              department,
+              semester,
+              subject,
+              uploaded_by: update.message.from?.username || 'Anonymous',
+              upload_date: new Date(update.message.date * 1000).toISOString(),
+              status: 'pending'
+            });
+
+          if (insertError) {
+            console.error('Error inserting material:', insertError);
+          }
+        } catch (error) {
+          console.error('Error processing material:', error);
           continue;
         }
       }
     }
     
-    return materials.reverse(); // Show newest first
-  } catch {
+    // Return all non-deleted materials from Supabase
+    const { data: materials, error } = await supabaseAdmin
+      .from('materials')
+      .select('*')
+      .neq('status', 'deleted')
+      .order('created_at', { ascending: false });
+
+    if (error) {
+      console.error('Supabase fetch error:', error);
+      return [];
+    }
+
+    console.log('Fetched materials:', materials);
+
+    return materials.map(m => ({
+      id: m.telegram_file_id,
+      title: m.title,
+      type: m.type,
+      department: m.department,
+      semester: m.semester,
+      subject: m.subject,
+      uploadedBy: m.uploaded_by,
+      uploadDate: m.upload_date,
+      fileUrl: m.telegram_file_id,
+      messageId: m.telegram_message_id,
+      status: m.status,
+      slug: {
+        dept: m.department.toLowerCase(),
+        sem: m.semester.toLowerCase(),
+        sub: m.subject.toLowerCase()
+      }
+    }));
+  } catch (error) {
+    console.error('Error in getFilesFromGroup:', error);
     return [];
   }
 }

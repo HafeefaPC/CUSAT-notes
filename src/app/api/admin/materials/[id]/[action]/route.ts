@@ -1,6 +1,7 @@
 import { NextRequest, NextResponse } from 'next/server';
 import { getAuthToken, verifyAuth } from '@/lib/auth';
-import { updateMaterialStatus, deleteMaterialFromGroup } from '@/lib/telegram';
+import { deleteMaterialFromGroup } from '@/lib/telegram';
+import { supabaseAdmin } from '@/lib/supabase-admin';
 
 export async function POST(
   request: NextRequest,
@@ -18,33 +19,49 @@ export async function POST(
     const body = await request.json();
     const { messageId } = body;
 
-    let success = false;
+    console.log('Processing action:', { id, action, messageId });
 
     switch (action) {
       case 'accept':
-      case 'reject':
-        success = await updateMaterialStatus(id, action);
-        if (!success) {
-          throw new Error(`Failed to ${action} material`);
+      case 'reject': {
+        // Convert action to correct status
+        const status = action === 'accept' ? 'accepted' : 'rejected';
+        
+        const { error } = await supabaseAdmin
+          .from('materials')
+          .update({ status })
+          .eq('telegram_file_id', id);
+
+        if (error) {
+          console.error('Supabase update error:', error);
+          throw error;
         }
         break;
-      case 'delete':
+      }
+      case 'delete': {
         const deleted = await deleteMaterialFromGroup(messageId);
         if (deleted) {
-          success = await updateMaterialStatus(id, 'deleted');
-          if (!success) {
-            throw new Error('Failed to update status after deletion');
+          const { error } = await supabaseAdmin
+            .from('materials')
+            .update({ status: 'deleted' })
+            .eq('telegram_file_id', id);
+
+          if (error) {
+            console.error('Supabase delete error:', error);
+            throw error;
           }
         } else {
           throw new Error('Failed to delete from Telegram');
         }
         break;
+      }
       default:
         return NextResponse.json({ error: 'Invalid action' }, { status: 400 });
     }
 
     return NextResponse.json({ success: true });
   } catch (error) {
+    console.error('Action handler error:', error);
     return NextResponse.json({ 
       error: error instanceof Error ? error.message : 'Action failed' 
     }, { status: 500 });
