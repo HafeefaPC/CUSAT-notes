@@ -26,9 +26,8 @@ const MaterialCard: React.FC<MaterialCardProps> = ({ material, children }) => {
       
       // Create a temporary link and trigger download
       const link = document.createElement('a');
+      // The URL will now be relative to our domain
       link.href = data.url;
-      link.target = '_blank';
-      link.rel = 'noopener noreferrer';
       link.download = material.title;
       document.body.appendChild(link);
       link.click();

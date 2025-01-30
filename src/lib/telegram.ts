@@ -161,7 +161,8 @@ export async function getFileFromTelegram(fileId: string): Promise<string> {
       throw new Error('File size exceeds 25MB limit');
     }
     
-    return `https://api.telegram.org/file/bot${TELEGRAM_BOT_TOKEN}/${data.result.file_path}`;
+    // Use our proxy endpoint instead of direct Telegram URL
+    return `/api/proxy/${data.result.file_path}`;
   } catch (error) {
     console.error('Error getting file:', error);
     throw new Error(error instanceof Error ? error.message : 'Failed to get file URL');
