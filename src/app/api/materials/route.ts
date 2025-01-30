@@ -1,8 +1,13 @@
 import { NextResponse } from 'next/server';
 import { supabase } from '@/lib/supabase';
+import { getFilesFromGroup } from '@/lib/telegram';
 
 export async function GET() {
   try {
+    // First fetch new files from Telegram
+    await getFilesFromGroup();
+
+    // Then get materials from Supabase
     const { data: materials, error } = await supabase
       .from('materials')
       .select('*')
@@ -20,7 +25,7 @@ export async function GET() {
       subject: m.subject,
       uploadedBy: m.uploaded_by,
       uploadDate: m.upload_date,
-      fileUrl: m.telegram_file_id,
+      fileUrl: m.file_id || m.telegram_file_id, // Use file_id if available
       messageId: m.telegram_message_id,
       slug: {
         dept: m.department.toLowerCase(),

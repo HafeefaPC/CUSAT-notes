@@ -1,7 +1,7 @@
 "use client"
 
 import { StudyMaterial, FilterOptions } from '@/types'
-import { MaterialCard } from './MaterialCard'
+import MaterialCard from './MaterialCard'
 import { Button } from './ui/button'
 import { useEffect, useState } from 'react'
 import { ChevronLeft, ChevronRight, Loader2 } from 'lucide-react'

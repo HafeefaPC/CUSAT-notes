@@ -20,11 +20,13 @@ import {
   DialogHeader,
   DialogTitle,
 } from './ui/dialog';
+import { toast } from '@/hooks/use-toast';
 
 export function AdminDashboard() {
   const router = useRouter();
   const [materials, setMaterials] = useState<StudyMaterial[]>([]);
   const [loading, setLoading] = useState(true);
+  const [previewLoading, setPreviewLoading] = useState(false);
   const [previewUrl, setPreviewUrl] = useState<string | null>(null);
   const [selectedMaterial, setSelectedMaterial] = useState<StudyMaterial | null>(null);
 
@@ -38,11 +40,15 @@ export function AdminDashboard() {
       const response = await fetch('/api/admin/materials');
       if (!response.ok) throw new Error('Failed to fetch materials');
       const data = await response.json();
-      console.log('Fetched materials:', data); // Debug log
       setMaterials(data);
     } catch (error) {
       console.error('Failed to fetch materials:', error);
       setMaterials([]);
+      toast({
+        variant: "destructive",
+        title: "Error fetching materials",
+        description: error instanceof Error ? error.message : 'Failed to fetch materials'
+      });
     } finally {
       setLoading(false);
     }
@@ -64,7 +70,6 @@ export function AdminDashboard() {
         throw new Error(data.error || 'Action failed');
       }
       
-      // Update local state immediately with correct status
       setMaterials(prevMaterials => {
         if (action === 'delete') {
           return prevMaterials.filter(m => m.id !== id);
@@ -76,33 +81,75 @@ export function AdminDashboard() {
           } : m
         );
       });
+
+      toast({
+        title: "Success",
+        description: `Material ${action}ed successfully`
+      });
     } catch (error) {
       console.error(`Failed to ${action} material:`, error);
-      alert(error instanceof Error ? error.message : 'Action failed');
-    }
-  };
-
-  const handleLogout = async () => {
-    try {
-      await fetch('/api/auth/logout', { method: 'POST' });
-      router.push('/login');
-      router.refresh();
-    } catch (error) {
-      console.error('Logout failed:', error);
+      toast({
+        variant: "destructive",
+        title: `Failed to ${action} material`,
+        description: error instanceof Error ? error.message : 'Action failed'
+      });
     }
   };
 
   const handlePreview = async (material: StudyMaterial) => {
     try {
-      const response = await fetch(`/api/download?fileId=${material.fileUrl}`);
+      setPreviewLoading(true);
+      setSelectedMaterial(material);
+      
+      // Validate fileUrl exists
+      if (!material.fileUrl) {
+        throw new Error('No file URL available');
+      }
+
+      // Add error handling for invalid file IDs
+      if (!/^[a-zA-Z0-9-_]+$/.test(material.fileUrl)) {
+        throw new Error('Invalid file ID format');
+      }
+
+      const response = await fetch(`/api/download?fileId=${encodeURIComponent(material.fileUrl)}`);
       const data = await response.json();
       
-      if (data.error) throw new Error(data.error);
+      if (!response.ok) {
+        throw new Error(data.error || 'Failed to get file URL');
+      }
       
-      setPreviewUrl(data.url);
-      setSelectedMaterial(material);
+      // Validate returned URL
+      if (!data.url || typeof data.url !== 'string') {
+        throw new Error('Invalid URL received from server');
+      }
+
+      // For preview, we'll open in a new tab instead of iframe
+      window.open(data.url, '_blank', 'noopener,noreferrer');
     } catch (error) {
       console.error('Preview failed:', error);
+      toast({
+        variant: "destructive",
+        title: "Preview failed",
+        description: error instanceof Error ? error.message : 'Failed to preview file'
+      });
+    } finally {
+      setPreviewLoading(false);
+    }
+  };
+
+  const handleLogout = async () => {
+    try {
+      const response = await fetch('/api/auth/logout', { method: 'POST' });
+      if (!response.ok) throw new Error('Logout failed');
+      router.push('/login');
+      router.refresh();
+    } catch (error) {
+      console.error('Logout failed:', error);
+      toast({
+        variant: "destructive",
+        title: "Logout failed",
+        description: error instanceof Error ? error.message : 'Failed to logout'
+      });
     }
   };
 
@@ -162,8 +209,13 @@ export function AdminDashboard() {
                         size="sm"
                         variant="ghost"
                         onClick={() => handlePreview(material)}
+                        disabled={previewLoading}
                       >
-                        <Eye className="h-4 w-4" />
+                        {previewLoading ? (
+                          <Loader2 className="h-4 w-4 animate-spin" />
+                        ) : (
+                          <Eye className="h-4 w-4" />
+                        )}
                       </Button>
                       <Button
                         size="sm"
@@ -196,20 +248,23 @@ export function AdminDashboard() {
         </div>
       )}
 
-      <Dialog open={!!previewUrl} onOpenChange={() => setPreviewUrl(null)}>
+      <Dialog open={!!previewUrl} onOpenChange={() => {
+        setPreviewUrl(null);
+        setSelectedMaterial(null);
+      }}>
         <DialogContent className="max-w-4xl h-[80vh]">
           <DialogHeader>
             <DialogTitle>{selectedMaterial?.title}</DialogTitle>
           </DialogHeader>
           {previewUrl && (
             <iframe
-              src={`${previewUrl}#toolbar=0`}
-              className="w-full h-full"
-              title="PDF Preview"
+              src={previewUrl}
+              className="w-full h-full border-0"
+              title="Document Preview"
             />
           )}
         </DialogContent>
       </Dialog>
     </div>
   );
-} 
+}

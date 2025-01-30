@@ -3,17 +3,27 @@ import { NextRequest, NextResponse } from 'next/server';
 
 export async function GET(request: NextRequest) {
   try {
-    const searchParams = request.nextUrl.searchParams;
-    const fileId = searchParams.get('fileId');
+    const fileId = request.nextUrl.searchParams.get('fileId');
 
     if (!fileId) {
-      return NextResponse.json({ error: 'File ID is required' }, { status: 400 });
+      return NextResponse.json(
+        { error: 'File ID is required' }, 
+        { status: 400 }
+      );
     }
 
-    const url = await getFileFromTelegram(fileId);
-    return NextResponse.json({ url });
-  } catch (err) {
-    console.error('Error in download route:', err);
-    return NextResponse.json({ error: 'Failed to get file' }, { status: 500 });
+    const fileUrl = await getFileFromTelegram(fileId);
+    
+    if (!fileUrl) {
+      throw new Error('Failed to get file URL');
+    }
+
+    return NextResponse.json({ url: fileUrl });
+  } catch (error) {
+    console.error('Error in download route:', error);
+    return NextResponse.json(
+      { error: error instanceof Error ? error.message : 'Failed to get file URL' },
+      { status: 500 }
+    );
   }
 } 

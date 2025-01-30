@@ -1,3 +1,4 @@
+import React from 'react'
 import { StudyMaterial } from '@/types'
 import { Download, FileText, FileQuestion } from 'lucide-react'
 import { Button } from './ui/button'
@@ -5,7 +6,12 @@ import { Card, CardContent, CardFooter, CardHeader, CardTitle } from './ui/card'
 import { Badge } from './ui/badge'
 import { useState } from 'react'
 
-export function MaterialCard({ material }: { material: StudyMaterial }) {
+interface MaterialCardProps {
+  material: StudyMaterial;
+  children?: React.ReactNode;
+}
+
+const MaterialCard: React.FC<MaterialCardProps> = ({ material, children }) => {
   const [isDownloading, setIsDownloading] = useState(false);
 
   const handleDownload = async () => {
@@ -14,18 +20,22 @@ export function MaterialCard({ material }: { material: StudyMaterial }) {
       const response = await fetch(`/api/download?fileId=${material.fileUrl}`);
       const data = await response.json();
       
-      if (data.error) throw new Error(data.error);
+      if (!response.ok || !data.url) {
+        throw new Error(data.error || 'Failed to get file URL');
+      }
       
       // Create a temporary link and trigger download
       const link = document.createElement('a');
       link.href = data.url;
+      link.target = '_blank';
+      link.rel = 'noopener noreferrer';
       link.download = material.title;
       document.body.appendChild(link);
       link.click();
       document.body.removeChild(link);
     } catch (error) {
       console.error('Download failed:', error);
-      // You might want to show an error toast here
+      alert(error instanceof Error ? error.message : 'Download failed');
     } finally {
       setIsDownloading(false);
     }
@@ -64,6 +74,9 @@ export function MaterialCard({ material }: { material: StudyMaterial }) {
           {isDownloading ? 'Downloading...' : 'Download'}
         </Button>
       </CardFooter>
+      {children}
     </Card>
   )
-} 
+}
+
+export default MaterialCard; 

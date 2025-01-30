@@ -17,101 +17,110 @@ export interface TelegramFile {
 
 export async function getFilesFromGroup(): Promise<StudyMaterial[]> {
   try {
-    console.log('Fetching messages from Telegram...');
-    
+    // Fetch updates from Telegram
     const response = await fetch(
       `${BOT_API_URL}/getUpdates?chat_id=${TELEGRAM_GROUP_ID}&limit=100`,
       { 
         cache: 'no-store',
-        headers: {
-          'Content-Type': 'application/json',
-        }
+        headers: { 'Content-Type': 'application/json' }
       }
     );
     
     const data = await response.json();
-    console.log('Telegram Response:', data);
-
-    if (!data.ok) {
-      console.error('Telegram API Error:', data);
-      return [];
+    if (!data.ok || !data.result) {
+      throw new Error('Failed to fetch messages from Telegram');
     }
 
     // Process new materials from Telegram
     for (const update of data.result) {
-      if (update.message?.document) {
-        const doc = update.message.document;
-        const caption = update.message.caption || doc.file_name || 'Untitled';
-        
-        try {
-          // Check if material already exists
-          const { data: existing } = await supabaseAdmin
-            .from('materials')
-            .select('telegram_file_id')
-            .eq('telegram_file_id', doc.file_unique_id)
-            .single();
+      if (!update.message?.document) continue;
 
-          if (existing) continue;
+      const doc = update.message.document;
+      const caption = update.message.caption || '';
+      
+      try {
+        // Check if material already exists
+        const { data: existing } = await supabaseAdmin
+          .from('materials')
+          .select('telegram_file_id, file_id')
+          .eq('telegram_file_id', doc.file_unique_id)
+          .single();
 
-          // Parse caption for metadata
-          let semester = 'Unknown';
-          let department = 'Unknown';
-          let subject = 'Unknown';
-          let type = 'notes';
-
-          if (caption.includes('_')) {
-            const parts = caption.split('_').map((part: string) => part.trim());
-            semester = parts[0] || 'Unknown';
-            department = parts[1] || 'Unknown';
-            subject = parts[2] || 'Unknown';
-            type = (parts[3] || '').toLowerCase().includes('note') ? 'notes' : 'question_paper';
+        if (existing) {
+          // Update file_id if it's null
+          if (!existing.file_id) {
+            await supabaseAdmin
+              .from('materials')
+              .update({ file_id: doc.file_id })
+              .eq('telegram_file_id', doc.file_unique_id);
           }
+          continue;
+        }
 
-          console.log('Processing document:', {
-            id: doc.file_unique_id,
-            title: doc.file_name,
-            metadata: { semester, department, subject, type }
+        // Parse metadata from caption
+        const metadata = parseFileMetadata(caption, doc.file_name || 'Untitled');
+
+        // Insert new material
+        const { error: insertError } = await supabaseAdmin
+          .from('materials')
+          .insert({
+            telegram_file_id: doc.file_unique_id,
+            file_id: doc.file_id, // Store the file_id for downloads
+            telegram_message_id: update.message.message_id.toString(),
+            title: doc.file_name || caption,
+            type: metadata.type,
+            department: metadata.department,
+            semester: metadata.semester,
+            subject: metadata.subject,
+            uploaded_by: update.message.from?.username || 'Anonymous',
+            upload_date: new Date(update.message.date * 1000).toISOString(),
+            status: 'pending'
           });
 
-          // Insert new material into Supabase
-          const { error: insertError } = await supabaseAdmin
-            .from('materials')
-            .insert({
-              telegram_file_id: doc.file_unique_id,
-              telegram_message_id: update.message.message_id.toString(),
-              title: doc.file_name || caption,
-              type,
-              department,
-              semester,
-              subject,
-              uploaded_by: update.message.from?.username || 'Anonymous',
-              upload_date: new Date(update.message.date * 1000).toISOString(),
-              status: 'pending'
-            });
+        if (insertError) {
+          throw new Error(`Failed to insert material: ${insertError.message}`);
+        }
+      } catch (error) {
+        console.error('Error processing material:', error);
+        continue;
+      }
+    }
 
-          if (insertError) {
-            console.error('Error inserting material:', insertError);
+    // Update existing null file_ids
+    const { data: nullFileIds } = await supabaseAdmin
+      .from('materials')
+      .select('telegram_file_id')
+      .is('file_id', null);
+
+    if (nullFileIds?.length) {
+      for (const material of nullFileIds) {
+        try {
+          // Get file info from Telegram
+          const response = await fetch(
+            `${BOT_API_URL}/getFile?file_id=${material.telegram_file_id}`
+          );
+          const data = await response.json();
+          
+          if (data.ok && data.result?.file_id) {
+            await supabaseAdmin
+              .from('materials')
+              .update({ file_id: data.result.file_id })
+              .eq('telegram_file_id', material.telegram_file_id);
           }
         } catch (error) {
-          console.error('Error processing material:', error);
-          continue;
+          console.error('Error updating file_id:', error);
         }
       }
     }
-    
-    // Return all non-deleted materials from Supabase
+
+    // Return all materials
     const { data: materials, error } = await supabaseAdmin
       .from('materials')
       .select('*')
       .neq('status', 'deleted')
       .order('created_at', { ascending: false });
 
-    if (error) {
-      console.error('Supabase fetch error:', error);
-      return [];
-    }
-
-    console.log('Fetched materials:', materials);
+    if (error) throw new Error(`Failed to fetch materials: ${error.message}`);
 
     return materials.map(m => ({
       id: m.telegram_file_id,
@@ -122,7 +131,7 @@ export async function getFilesFromGroup(): Promise<StudyMaterial[]> {
       subject: m.subject,
       uploadedBy: m.uploaded_by,
       uploadDate: m.upload_date,
-      fileUrl: m.telegram_file_id,
+      fileUrl: m.file_id || m.telegram_file_id, // Use file_id if available, fallback to telegram_file_id
       messageId: m.telegram_message_id,
       status: m.status,
       slug: {
@@ -139,19 +148,68 @@ export async function getFilesFromGroup(): Promise<StudyMaterial[]> {
 
 export async function getFileFromTelegram(fileId: string): Promise<string> {
   try {
-    console.log('Getting file path for:', fileId);
     const response = await fetch(`${BOT_API_URL}/getFile?file_id=${fileId}`);
     const data = await response.json();
     
-    console.log('GetFile Response:', data);
+    if (!data.ok || !data.result?.file_path) {
+      console.error('Telegram getFile response:', data);
+      throw new Error(data.description || 'Failed to get file path from Telegram');
+    }
+
+    // Check file size (25MB limit)
+    if (data.result.file_size > 25 * 1024 * 1024) {
+      throw new Error('File size exceeds 25MB limit');
+    }
     
-    if (!data.ok) throw new Error('Failed to get file path');
-    
-    const filePath = data.result.file_path;
-    return `https://api.telegram.org/file/bot${TELEGRAM_BOT_TOKEN}/${filePath}`;
+    return `https://api.telegram.org/file/bot${TELEGRAM_BOT_TOKEN}/${data.result.file_path}`;
   } catch (error) {
     console.error('Error getting file:', error);
-    throw error;
+    throw new Error(error instanceof Error ? error.message : 'Failed to get file URL');
+  }
+}
+
+function parseFileMetadata(caption: string, fileName: string) {
+  const DEFAULT_VALUES = {
+    semester: 'Unknown',
+    department: 'General',
+    subject: 'Uncategorized',
+    type: 'notes'
+  };
+
+  if (caption.includes('_')) {
+    const parts = caption.split('_').map(part => part.trim());
+    return {
+      semester: parts[0] || DEFAULT_VALUES.semester,
+      department: parts[1] || DEFAULT_VALUES.department,
+      subject: parts[2] || DEFAULT_VALUES.subject,
+      type: (parts[3] || '').toLowerCase().includes('qp') ? 'question_paper' : 'notes'
+    };
+  }
+
+  return {
+    ...DEFAULT_VALUES,
+    type: fileName.toLowerCase().includes('qp') ? 'question_paper' : 'notes'
+  };
+}
+
+export async function deleteMaterialFromGroup(messageId: string): Promise<boolean> {
+  try {
+    const response = await fetch(
+      `${BOT_API_URL}/deleteMessage`,
+      {
+        method: 'POST',
+        headers: { 'Content-Type': 'application/json' },
+        body: JSON.stringify({
+          chat_id: TELEGRAM_GROUP_ID,
+          message_id: parseInt(messageId)
+        })
+      }
+    );
+
+    const data = await response.json();
+    return data.ok;
+  } catch {
+    return false;
   }
 }
 
@@ -187,29 +245,6 @@ export async function updateMaterialStatus(
   try {
     materialStatuses.set(fileId, status);
     return true;
-  } catch {
-    return false;
-  }
-}
-
-export async function deleteMaterialFromGroup(messageId: string): Promise<boolean> {
-  try {
-    const response = await fetch(
-      `${BOT_API_URL}/deleteMessage`,
-      {
-        method: 'POST',
-        headers: {
-          'Content-Type': 'application/json',
-        },
-        body: JSON.stringify({
-          chat_id: TELEGRAM_GROUP_ID,
-          message_id: parseInt(messageId)
-        })
-      }
-    );
-
-    const data = await response.json();
-    return data.ok;
   } catch {
     return false;
   }
