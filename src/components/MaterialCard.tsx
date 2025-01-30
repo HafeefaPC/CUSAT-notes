@@ -5,6 +5,7 @@ import { Button } from './ui/button'
 import { Card, CardContent, CardFooter, CardHeader, CardTitle } from './ui/card'
 import { Badge } from './ui/badge'
 import { useState } from 'react'
+import { toast } from '@/hooks/use-toast'
 
 interface MaterialCardProps {
   material: StudyMaterial;
@@ -17,16 +18,21 @@ const MaterialCard: React.FC<MaterialCardProps> = ({ material, children }) => {
   const handleDownload = async () => {
     try {
       setIsDownloading(true);
-      const response = await fetch(`/api/download?fileId=${material.fileUrl}`);
+      
+      // Validate file URL
+      if (!material.fileUrl) {
+        throw new Error('No file URL available');
+      }
+
+      const response = await fetch(`/api/download?fileId=${encodeURIComponent(material.fileUrl)}`);
       const data = await response.json();
       
       if (!response.ok || !data.url) {
         throw new Error(data.error || 'Failed to get file URL');
       }
-      
-      // Create a temporary link and trigger download
+
+      // Create temporary link and trigger download
       const link = document.createElement('a');
-      // The URL will now be relative to our domain
       link.href = data.url;
       link.download = material.title;
       document.body.appendChild(link);
@@ -34,7 +40,11 @@ const MaterialCard: React.FC<MaterialCardProps> = ({ material, children }) => {
       document.body.removeChild(link);
     } catch (error) {
       console.error('Download failed:', error);
-      alert(error instanceof Error ? error.message : 'Download failed');
+      toast({
+        variant: "destructive",
+        title: "Download failed",
+        description: error instanceof Error ? error.message : 'Failed to download file'
+      });
     } finally {
       setIsDownloading(false);
     }

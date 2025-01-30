@@ -148,7 +148,19 @@ export async function getFilesFromGroup(): Promise<StudyMaterial[]> {
 
 export async function getFileFromTelegram(fileId: string): Promise<string> {
   try {
-    const response = await fetch(`${BOT_API_URL}/getFile?file_id=${fileId}`);
+    // Validate environment variables
+    if (!process.env.NEXT_PUBLIC_TELEGRAM_BOT_TOKEN) {
+      throw new Error('Telegram bot token not configured');
+    }
+
+    const response = await fetch(
+      `https://api.telegram.org/bot${process.env.NEXT_PUBLIC_TELEGRAM_BOT_TOKEN}/getFile?file_id=${fileId}`,
+      {
+        headers: { 'Content-Type': 'application/json' },
+        next: { revalidate: 0 } // Don't cache this request
+      }
+    );
+
     const data = await response.json();
     
     if (!data.ok || !data.result?.file_path) {
@@ -156,12 +168,7 @@ export async function getFileFromTelegram(fileId: string): Promise<string> {
       throw new Error(data.description || 'Failed to get file path from Telegram');
     }
 
-    // Check file size (25MB limit)
-    if (data.result.file_size > 25 * 1024 * 1024) {
-      throw new Error('File size exceeds 25MB limit');
-    }
-    
-    // Use our proxy endpoint instead of direct Telegram URL
+    // Return the proxy URL instead of direct Telegram URL
     return `/api/proxy/${data.result.file_path}`;
   } catch (error) {
     console.error('Error getting file:', error);
